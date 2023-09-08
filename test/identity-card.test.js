@@ -5,7 +5,7 @@
  *    All rights reserved.
  *
  ******************************************************************************/
-import { IdentityCard } from '@/index';
+import { IdentityCard } from '../src/index';
 
 /**
  * 单元测试{@link IdentityCard.isValid}。

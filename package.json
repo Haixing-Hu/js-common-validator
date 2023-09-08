@@ -1,6 +1,6 @@
 {
   "name": "@haixing_hu/common-validator",
-  "version": "2.3.3",
+  "version": "2.4.0",
   "description": "A JavaScript ES6 library for common fields validators",
   "main": "dist/common-validator.min.js",
   "scripts": {
@@ -31,9 +31,6 @@
   "dependencies": {
     "email-validator": "^2.0.4",
     "node-uri": "^1.1.1"
-  },
-  "peerDependencies": {
-    "@haixing_hu/common-util": "^2.8.1"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",

@@ -5,7 +5,7 @@
  *    All rights reserved.
  *
  ******************************************************************************/
-import { LocalDate } from '@/index';
+import { LocalDate } from '../src/index';
 
 /**
  * 单元测试{@link LocalDate.isValid}。

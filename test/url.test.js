@@ -5,7 +5,7 @@
  *    All rights reserved.
  *
  ******************************************************************************/
-import { Url } from '@/index';
+import { Url } from '../src/index';
 
 /**
  * 单元测试{@link Url.isValid}。

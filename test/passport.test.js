@@ -5,7 +5,7 @@
  *    All rights reserved.
  *
  ******************************************************************************/
-import { Passport } from '@/index';
+import { Passport } from '../src/index';
 
 /**
  * 单元测试{@link Passport.isValid}。

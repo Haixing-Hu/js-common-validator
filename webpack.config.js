@@ -27,11 +27,6 @@ const commonConfig = {
   mode: 'production',
   stats: 'summary',
   target: ['web', 'es5'],
-  resolve: {
-    alias: {
-      '@': resolve(__dirname, 'src'),
-    },
-  },
   externals: {
     '@haixing_hu/common-util': 'commonjs2 @haixing_hu/common-util',
   },

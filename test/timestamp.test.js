@@ -5,7 +5,7 @@
  *    All rights reserved.
  *
  ******************************************************************************/
-import { Timestamp } from '@/index';
+import { Timestamp } from '../src/index';
 
 /**
  * 单元测试{@link Timestamp.isValid}。

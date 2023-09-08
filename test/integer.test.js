@@ -5,7 +5,7 @@
  *    All rights reserved.
  *
  ******************************************************************************/
-import { Integer } from '@/index';
+import { Integer } from '../src/index';
 
 /**
  * 单元测试{@link Integer.isValid}。

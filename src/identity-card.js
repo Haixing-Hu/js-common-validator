@@ -7,7 +7,7 @@
  ******************************************************************************/
 import {
   isIdCardNumberValid, getIdCardBirthday, getIdCardGender,
-} from '@/impl/identity-card-validator';
+} from './impl/identity-card-validator';
 
 /**
  * 中华人民共和国大陆身份证号码验证规则。
