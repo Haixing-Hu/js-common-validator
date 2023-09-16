@@ -27,9 +27,6 @@ const commonConfig = {
   mode: 'production',
   stats: 'summary',
   target: ['web', 'es5'],
-  externals: {
-    '@haixing_hu/common-util': 'commonjs2 @haixing_hu/common-util',
-  },
   optimization: {
     minimize: true,
     minimizer: [
