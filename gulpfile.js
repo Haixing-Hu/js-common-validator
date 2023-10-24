@@ -1,10 +1,11 @@
-/*******************************************************************************
- *
- *    Copyright (c) 2017 - 2021
- *    Nanjing Smart Medical Investment Operation Service Co. Ltd.
- *    All rights reserved.
- *
- ******************************************************************************/
+////////////////////////////////////////////////////////////////////////////////
+//
+//    Copyright (c) 2022 - 2023.
+//    Haixing Hu, Qubit Co. Ltd.
+//
+//    All rights reserved.
+//
+////////////////////////////////////////////////////////////////////////////////
 const gulp = require('gulp');
 const connect = require('gulp-connect');
 const jest = require('gulp-jest').default;
