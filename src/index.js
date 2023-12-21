@@ -6,24 +6,37 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
-import Email from './email';
-import Mobile from './mobile';
-import PersonName from './person-name';
-import IdentityCard from './identity-card';
-import Passport from './passport';
-import OfficerCard from './officer-card';
-import OtherCredential from './other-credential';
-import VerifyCode from './verify-code';
-import Integer from './integer';
-import Float from './float';
-import AlphaNumber from './alpha-number';
-import UppercaseAlphaNumber from './uppercase-alpha-number';
-import LocalDate from './date';
-import Timestamp from './timestamp';
-import Url from './url';
-import Phone from './phone';
+import ValidationResult from './validation-result';
+import Email from './rules/email';
+import Mobile from './rules/mobile';
+import PersonName from './rules/person-name';
+import IdentityCard from './rules/identity-card';
+import Passport from './rules/passport';
+import OfficerCard from './rules/officer-card';
+import OtherCredential from './rules/other-credential';
+import VerifyCode from './rules/verify-code';
+import Integer from './rules/integer';
+import Float from './rules/float';
+import AlphaNumber from './rules/alpha-number';
+import UppercaseAlphaNumber from './rules/uppercase-alpha-number';
+import LocalDate from './rules/local-date';
+import Timestamp from './rules/timestamp';
+import Url from './rules/url';
+import Phone from './rules/phone';
+import validateStringFieldByRule from './validators/impl/validate-string-field-by-rule';
+import validateAlphaNumberField from './validators/validate-alphanumber-field';
+import validateDateField from './validators/validate-date-field';
+import validateEmailField from './validators/validate-email-field';
+import validateFloatField from './validators/validate-float-field';
+import validateIntegerField from './validators/validate-integer-field';
+import validateMobileField from './validators/validate-mobile-field';
+import validatePhoneField from './validators/validate-phone-field';
+import validateTimestampField from './validators/validate-timestamp-field';
+import validateUppercaseAlphaNumberField from './validators/validate-uppercase-alphanumber-field';
+import validateUrlField from './validators/validate-url-field';
 
 export {
+  ValidationResult,
   PersonName,
   Mobile,
   Phone,
@@ -40,4 +53,15 @@ export {
   LocalDate,
   Timestamp,
   Url,
+  validateStringFieldByRule,
+  validateAlphaNumberField,
+  validateDateField,
+  validateEmailField,
+  validateFloatField,
+  validateIntegerField,
+  validateMobileField,
+  validatePhoneField,
+  validateTimestampField,
+  validateUppercaseAlphaNumberField,
+  validateUrlField,
 };

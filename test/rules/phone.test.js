@@ -6,7 +6,7 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
-import { Phone } from '../src/index';
+import { Phone } from '../../src';
 
 /**
  * 单元测试{@link Phone.isValid}。

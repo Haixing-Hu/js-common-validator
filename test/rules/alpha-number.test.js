@@ -6,7 +6,7 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
-import { AlphaNumber } from '../src/index';
+import { AlphaNumber } from '../../src';
 
 /**
  * 单元测试{@link AlphaNumber.isValid}。

@@ -6,7 +6,7 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
-import { Float } from '../src/index';
+import { Float } from '../../src';
 
 /**
   * 单元测试{@link Float.isValid}。

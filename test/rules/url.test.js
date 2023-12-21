@@ -6,7 +6,7 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
-import { Url } from '../src/index';
+import { Url } from '../../src';
 
 /**
  * 单元测试{@link Url.isValid}。

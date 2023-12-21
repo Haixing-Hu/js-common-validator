@@ -6,7 +6,7 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
-import { PersonName } from '../src/index';
+import { PersonName } from '../../src';
 
 /**
  * 单元测试{@link PersonName.isValid}。

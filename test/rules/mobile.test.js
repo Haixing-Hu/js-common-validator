@@ -6,7 +6,7 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
-import { Mobile } from '../src/index';
+import { Mobile } from '../../src';
 
 /**
  * 单元测试{@link Mobile.isValid}。
