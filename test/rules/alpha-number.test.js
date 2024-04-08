@@ -22,11 +22,11 @@ describe('AlphaNumber.isValid()', () => {
     const str = null;
     expect(AlphaNumber.isValid(str)).toBe(false);
   });
-  test('""', () => {
+  test('empty string', () => {
     const str = '';
     expect(AlphaNumber.isValid(str)).toBe(false);
   });
-  test('123', () => {
+  test('non string', () => {
     const str = 123;
     expect(AlphaNumber.isValid(str)).toBe(false);
   });

@@ -22,8 +22,12 @@ describe('Float.isValid()', () => {
     const str = null;
     expect(Float.isValid(str)).toBe(false);
   });
-  test('', () => {
+  test('empty string', () => {
     const str = '';
+    expect(Float.isValid(str)).toBe(false);
+  });
+  test('non string', () => {
+    const str = 123;
     expect(Float.isValid(str)).toBe(false);
   });
   test('"123 "', () => {

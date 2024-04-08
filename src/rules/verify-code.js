@@ -6,6 +6,7 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
+import isString from './impl/is-string';
 
 /**
  * 验证验证码合法性的正则表达式。
@@ -28,6 +29,6 @@ export default {
    * @author 胡海星
    */
   isValid(code) {
-    return VERIFY_CODE_REGEXP.test(code);
+    return isString(code) && VERIFY_CODE_REGEXP.test(code);
   },
 };

@@ -6,6 +6,7 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
+import isString from './is-string';
 import AREA_CODES from './area-codes';
 
 const NUMBER_LENGTH = 18;
@@ -149,7 +150,10 @@ function isIdCardAreaValid(number) {
  * @author 胡海星
  */
 export function isIdCardNumberValid(number) {
-  if ((typeof number !== 'string') || (number.length !== NUMBER_LENGTH)) {
+  if (!isString(number)) {
+    return false;
+  }
+  if (number.length !== NUMBER_LENGTH) {
     return false;
   }
   // 验证奇偶校验码是否合法

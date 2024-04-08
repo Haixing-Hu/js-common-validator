@@ -6,6 +6,7 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
+import isString from './impl/is-string';
 
 /**
  * 验证护照号码合法性的正则表达式。
@@ -67,6 +68,10 @@ export default {
    * @author 胡海星
    */
   isValid(number) {
-    return NUMBER_REGEXP.test(number);
+    if (isString(number)) {
+      return NUMBER_REGEXP.test(number);
+    } else {
+      return false;
+    }
   },
 };

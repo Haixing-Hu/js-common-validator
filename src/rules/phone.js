@@ -6,6 +6,7 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
+import isString from './impl/is-string';
 
 /**
  * 验证固定电话号码的正则表达式
@@ -37,10 +38,8 @@ export default {
    * @author 胡海星
    */
   isValid(phone) {
-    return (phone !== undefined)
-        && (phone !== null)
-        && (phone !== '')
-        && (typeof phone === 'string')
+    return isString(phone)
+        && (phone.length !== 0)
         && PHONE_REGEXP.test(phone);
   },
 

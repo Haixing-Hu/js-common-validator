@@ -6,9 +6,9 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
+import isString from './impl/is-string';
 
 export default {
-
   /**
    * 测试一个字符串是否表示一个合法的布尔值。
    *
@@ -23,10 +23,11 @@ export default {
    * @author 胡海星
    */
   isValid(str) {
-    if (str === undefined || str === null || str === '') {
+    if (isString(str)) {
+      const val = str.trim().toLowerCase();
+      return (val === 'true' || val === 'false');
+    } else {
       return false;
     }
-    const val = str.trim().toLowerCase();
-    return (val === 'true' || val === 'false');
   },
 };

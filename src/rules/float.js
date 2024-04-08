@@ -6,6 +6,7 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
+import isString from './impl/is-string';
 
 /**
  * 验证字符串是否表示合法的浮点数的正则表达式。
@@ -51,7 +52,10 @@ export default {
    * @author 胡海星
    */
   isValid(str, option = this.DEFAULT_OPTION) {
-    if (str === undefined || str === null || str === '') {
+    if (!isString(str)) {
+      return false;
+    }
+    if (str.length === 0) {
       return false;
     }
     if (FLOAT_REGEXP.test(str)) {

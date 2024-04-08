@@ -6,6 +6,7 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
+import isString from './impl/is-string';
 
 /**
  * 验证字符串是否是数字和字母组合成字符串。
@@ -32,9 +33,10 @@ export default {
    * @author 胡海星
    */
   isValid(str) {
-    if ((typeof str !== 'string') || (str.length === 0)) {
+    if (isString(str)) {
+      return ALPHA_NUMBER_REGEXP.test(str);
+    } else {
       return false;
     }
-    return ALPHA_NUMBER_REGEXP.test(str);
   },
 };

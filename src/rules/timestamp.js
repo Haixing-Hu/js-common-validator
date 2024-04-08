@@ -6,6 +6,7 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
+import isString from './impl/is-string';
 
 /**
  * 验证字符串是否表示合法的时间戳的正则表达式。
@@ -31,9 +32,10 @@ export default {
    * @author 胡海星
    */
   isValid(str) {
-    if (str === undefined || str === null || str === '' || typeof str !== 'string') {
+    if (isString(str)) {
+      return TIMESTAMP_REGEXP.test(str);
+    } else {
       return false;
     }
-    return TIMESTAMP_REGEXP.test(str);
   },
 };

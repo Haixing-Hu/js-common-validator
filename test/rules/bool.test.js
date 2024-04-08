@@ -22,8 +22,12 @@ describe('Bool.isValid()', () => {
     const str = null;
     expect(Bool.isValid(str)).toBe(false);
   });
-  test('""', () => {
+  test('empty string', () => {
     const str = '';
+    expect(Bool.isValid(str)).toBe(false);
+  });
+  test('non string', () => {
+    const str = 123;
     expect(Bool.isValid(str)).toBe(false);
   });
   test('"123 "', () => {

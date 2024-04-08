@@ -22,10 +22,14 @@ describe('LocalDate.isValid()', () => {
     const str = null;
     expect(LocalDate.isValid(str)).toBe(false);
   });
-  test('""', () => {
+  test('empty string', () => {
     const str = '';
     expect(LocalDate.isValid(str)).toBe(false);
     expect(LocalDate.isValid(new String(str))).toBe(false);
+  });
+  test('non string', () => {
+    const str = 123;
+    expect(LocalDate.isValid(str)).toBe(false);
   });
   test('"123 "', () => {
     const str = '123';

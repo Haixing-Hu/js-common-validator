@@ -6,6 +6,7 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
+import isString from './impl/is-string';
 
 /**
  * 验证手机号码的正则表达式
@@ -41,10 +42,8 @@ export default {
    * @author 胡海星
    */
   isValid(mobile) {
-    return (mobile !== undefined)
-        && (mobile !== null)
-        && (mobile !== '')
-        && (typeof mobile === 'string')
+    return isString(mobile)
+        && (mobile.length !== 0)
         && MOBILE_REGEXP.test(mobile);
   },
 

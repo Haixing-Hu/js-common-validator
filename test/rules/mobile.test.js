@@ -72,11 +72,9 @@ describe('Mobile.isValid()', () => {
   test('常博报告的bug', () => {
     expect(Mobile.isValid('13851726971')).toBe(true);
   });
-
   test('移动195区段', () => {
     expect(Mobile.isValid('19505183692')).toBe(true);
   });
-
   test('电信191区段', () => {
     expect(Mobile.isValid('19191019545')).toBe(true);
   });

@@ -6,6 +6,7 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
+import isString from './impl/is-string';
 
 /**
  * 验证中文姓名的正则表达式
@@ -58,9 +59,8 @@ export default {
    * @author 胡海星
    */
   isValid(name) {
-    return (name !== undefined)
-        && (name !== null)
-        && (name !== '')
+    return isString(name)
+        && (name.length !== 0)
         && (CHINESE_NAME_REGEXP.test(name)
          || ENGLISH_NAME_REGEXP.test(name));
   },

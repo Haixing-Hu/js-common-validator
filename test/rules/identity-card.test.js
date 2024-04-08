@@ -20,8 +20,11 @@ describe('IdentityCard.isValid()', () => {
   test('null', () => {
     expect(IdentityCard.isValid(null)).toBe(false);
   });
-  test('空字符串', () => {
+  test('empty string', () => {
     expect(IdentityCard.isValid('')).toBe(false);
+  });
+  test('non string', () => {
+    expect(IdentityCard.isValid(123)).toBe(false);
   });
   test('正确的身份证号码', () => {
     expect(IdentityCard.isValid('110101199003078515')).toBe(true);

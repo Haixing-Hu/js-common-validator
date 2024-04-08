@@ -14,6 +14,22 @@ import { PersonName } from '../../src';
  * @author 胡海星
  */
 describe('PersonName.isValid()', () => {
+  test('undefined', () => {
+    const str = undefined;
+    expect(PersonName.isValid(str)).toBe(false);
+  });
+  test('null', () => {
+    const str = null;
+    expect(PersonName.isValid(str)).toBe(false);
+  });
+  test('non string', () => {
+    const str = 123;
+    expect(PersonName.isValid(str)).toBe(false);
+  });
+  test('empty string', () => {
+    const str = '';
+    expect(PersonName.isValid(str)).toBe(false);
+  });
   test('正常名字', () => {
     expect(PersonName.isValid('张三')).toBe(true);
   });

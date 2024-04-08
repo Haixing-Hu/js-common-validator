@@ -20,10 +20,10 @@ describe('Phone.isValid()', () => {
   test('null', () => {
     expect(Phone.isValid(null)).toBe(false);
   });
-  test('""', () => {
+  test('empty string', () => {
     expect(Phone.isValid('')).toBe(false);
   });
-  test('123', () => {
+  test('non string', () => {
     expect(Phone.isValid(123)).toBe(false);
   });
   test('"84507762"', () => {

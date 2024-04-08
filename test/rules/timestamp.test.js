@@ -22,8 +22,12 @@ describe('Timestamp.isValid()', () => {
     const str = null;
     expect(Timestamp.isValid(str)).toBe(false);
   });
-  test('""', () => {
+  test('empty string', () => {
     const str = '';
+    expect(Timestamp.isValid(str)).toBe(false);
+  });
+  test('non string', () => {
+    const str = 123;
     expect(Timestamp.isValid(str)).toBe(false);
   });
   test('"123 "', () => {

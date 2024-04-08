@@ -6,6 +6,7 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
+import isString from './impl/is-string';
 
 /**
  * The regular expression of a valid local date.
@@ -38,9 +39,10 @@ export default {
     if (value instanceof Date) {
       return true;
     }
-    if ((typeof value === 'string') || (value instanceof String)) {
+    if (isString(value)) {
       return DATE_REGEXP.test(value.trim());
+    } else {
+      return false;
     }
-    return false;
   },
 };

@@ -7,6 +7,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 import uri from 'node-uri';
+import isString from './impl/is-string';
 
 export default {
 
@@ -22,10 +23,7 @@ export default {
    * @author 胡海星
    */
   isValid(url) {
-    if ((url === undefined)
-        || (url === null)
-        || (url === '')
-        || (typeof url !== 'string')) {
+    if (!isString(url) || (url.length === 0)) {
       return false;
     }
     try {

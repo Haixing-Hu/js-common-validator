@@ -22,8 +22,12 @@ describe('Integer.isValid()', () => {
     const str = null;
     expect(Integer.isValid(str)).toBe(false);
   });
-  test('""', () => {
+  test('empty string', () => {
     const str = '';
+    expect(Integer.isValid(str)).toBe(false);
+  });
+  test('non string', () => {
+    const str = 123;
     expect(Integer.isValid(str)).toBe(false);
   });
   test('"123 "', () => {

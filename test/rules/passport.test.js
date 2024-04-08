@@ -21,8 +21,11 @@ describe('Passport.isValid()', () => {
   test('null', () => {
     expect(Passport.isValid(null)).toBe(false);
   });
-  test('空字符串', () => {
+  test('empty string', () => {
     expect(Passport.isValid('')).toBe(false);
+  });
+  test('non string', () => {
+    expect(Passport.isValid(123)).toBe(false);
   });
   test('因私普通电子护照', () => {
     expect(Passport.isValid('E12345678')).toBe(true);

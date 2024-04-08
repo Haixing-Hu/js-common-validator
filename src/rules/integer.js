@@ -6,6 +6,7 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
+import isString from './impl/is-string';
 
 /**
  * 验证字符串是否表示合法的整数的正则表达式。
@@ -17,7 +18,6 @@
 const INTEGER_REGEXP = /^\s*[+-]?\d+\s*$/;
 
 export default {
-
   /**
    * 测试一个字符串是否表示一个合法的整数。
    *
@@ -32,9 +32,10 @@ export default {
    * @author 胡海星
    */
   isValid(str) {
-    if (str === undefined || str === null || str === '') {
+    if (isString(str)) {
+      return INTEGER_REGEXP.test(str);
+    } else {
       return false;
     }
-    return INTEGER_REGEXP.test(str);
   },
 };

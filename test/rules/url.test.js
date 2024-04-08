@@ -22,11 +22,11 @@ describe('Url.isValid()', () => {
     const str = null;
     expect(Url.isValid(str)).toBe(false);
   });
-  test('""', () => {
+  test('empty string', () => {
     const str = '';
     expect(Url.isValid(str)).toBe(false);
   });
-  test('123', () => {
+  test('non string', () => {
     const str = 123;
     expect(Url.isValid(str)).toBe(false);
   });
