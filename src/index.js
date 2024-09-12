@@ -13,6 +13,7 @@ import Email from './rules/email';
 import Float from './rules/float';
 import IdentityCard from './rules/identity-card';
 import Integer from './rules/integer';
+import Number from './rules/number';
 import LocalDate from './rules/local-date';
 import Mobile from './rules/mobile';
 import OfficerCard from './rules/officer-card';
@@ -45,6 +46,7 @@ export {
   Float,
   IdentityCard,
   Integer,
+  Number,
   LocalDate,
   Mobile,
   OfficerCard,
