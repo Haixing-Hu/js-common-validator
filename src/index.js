@@ -32,6 +32,7 @@ import validateEmailField from './validators/validate-email-field';
 import validateFloatField from './validators/validate-float-field';
 import validateIntegerField from './validators/validate-integer-field';
 import validateMobileField from './validators/validate-mobile-field';
+import validatePersonNameField from './validators/validate-person-name-field';
 import validatePhoneField from './validators/validate-phone-field';
 import validateStringFieldByRule from './validators/impl/validate-string-field-by-rule';
 import validateTimestampField from './validators/validate-timestamp-field';
@@ -66,6 +67,7 @@ export {
   validateFloatField,
   validateIntegerField,
   validateMobileField,
+  validatePersonNameField,
   validatePhoneField,
   validateStringFieldByRule,
   validateTimestampField,

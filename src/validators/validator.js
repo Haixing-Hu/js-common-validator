@@ -12,6 +12,7 @@ import validateDateField from './validate-date-field';
 import validateFloatField from './validate-float-field';
 import validateIntegerField from './validate-integer-field';
 import validateMobileField from './validate-mobile-field';
+import validatePersonNameField from './validate-person-name-field';
 import validatePhoneField from './validate-phone-field';
 import validateTimestampField from './validate-timestamp-field';
 import validateUppercaseAlphaNumberField from './validate-uppercase-alphanumber-field';
@@ -26,6 +27,7 @@ const Validator = {
   int: validateIntegerField,
   mobile: validateMobileField,
   money: validateFloatField,
+  personName: validatePersonNameField,
   phone: validatePhoneField,
   timestamp: validateTimestampField,
   upperAlphaNum: validateUppercaseAlphaNumberField,
