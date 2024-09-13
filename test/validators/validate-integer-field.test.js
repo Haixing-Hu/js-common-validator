@@ -231,4 +231,31 @@ describe('validateIntegerField', () => {
     const expected = new ValidationResult(false, '金额必须以数字或字符串形式表示');
     expect(validateIntegerField(str, context)).toEqual(expected);
   });
+  test('bigint', () => {
+    const id = 123293829432948233242389n;
+    const context = {
+      label: '金额',
+      nullable: true,
+    };
+    const expected = new ValidationResult(true);
+    expect(validateIntegerField(id, context)).toEqual(expected);
+  });
+  test('string representation of bigint, without suffix', () => {
+    const id = '123293829432948233242389';
+    const context = {
+      label: '金额',
+      nullable: true,
+    };
+    const expected = new ValidationResult(true);
+    expect(validateIntegerField(id, context)).toEqual(expected);
+  });
+  test('string representation of bigint, with suffix', () => {
+    const id = '123293829432948233242389n';
+    const context = {
+      label: '金额',
+      nullable: true,
+    };
+    const expected = new ValidationResult(false, '金额必须是整数');
+    expect(validateIntegerField(id, context)).toEqual(expected);
+  });
 });

@@ -36,7 +36,9 @@ export default function validateIntegerField(value, context = {}) {
   const message = (extraMessage ? `: ${extraMessage}` : '');
   const type = (typeof value);
   let valid = false;
-  if ((type === 'number') || (value instanceof Number)) {
+  if (type === 'bigint') {
+    valid = true;
+  } else if ((type === 'number') || (value instanceof Number)) {
     valid = Number.isInteger(value.valueOf());
   } else if ((type === 'string') || (value instanceof String)) {
     valid = Integer.isValid(value.valueOf());
