@@ -244,6 +244,7 @@ describe('validateIntegerField', () => {
     const id = '123293829432948233242389';
     const context = {
       label: '金额',
+
       nullable: true,
     };
     const expected = new ValidationResult(true);

@@ -18,15 +18,17 @@ import validateUppercaseAlphaNumberField from './validate-uppercase-alphanumber-
 import validateUrlField from './validate-url-field';
 
 const Validator = {
-  alphaNumber: validateAlphaNumberField,
+  alphaNum: validateAlphaNumberField,
   bool: validateBoolField,
   date: validateDateField,
   float: validateFloatField,
-  integer: validateIntegerField,
+  id: validateIntegerField,
+  int: validateIntegerField,
   mobile: validateMobileField,
+  money: validateFloatField,
   phone: validatePhoneField,
   timestamp: validateTimestampField,
-  uppercaseAlphaNumber: validateUppercaseAlphaNumberField,
+  upperAlphaNum: validateUppercaseAlphaNumberField,
   url: validateUrlField,
 };
 
