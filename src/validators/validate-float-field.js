@@ -23,7 +23,7 @@ import ValidationResult from '../validation-result';
  *     The validation result.
  * @author Haixing Hu
  */
-export default function validateFloatField(value, context = {}) {
+function validateFloatField(value, context = {}) {
   const { owner, nullable, label, extraMessage } = context;
   const whose = (owner ? `${owner}的` : '');
   if (value === undefined || value === null || value === '') {
@@ -59,3 +59,5 @@ export default function validateFloatField(value, context = {}) {
     return new ValidationResult(false, `${whose}${label}必须以数字或字符串形式表示${message}`);
   }
 }
+
+export default validateFloatField;

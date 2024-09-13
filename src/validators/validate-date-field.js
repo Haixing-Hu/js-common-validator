@@ -21,7 +21,7 @@ import ValidationResult from '../validation-result';
  *     The validation result.
  * @author Haixing Hu
  */
-export default function validateDateField(value, context = {}) {
+function validateDateField(value, context = {}) {
   const { owner, nullable, label, extraMessage, startDate, endDate } = context;
   const whose = (owner ? `${owner}的` : '');
   if (value === undefined || value === null || value === '') {
@@ -53,3 +53,5 @@ export default function validateDateField(value, context = {}) {
   }
   return new ValidationResult(true);
 }
+
+export default validateDateField;

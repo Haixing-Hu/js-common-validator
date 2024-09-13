@@ -22,7 +22,9 @@ import validateStringFieldByRule from './impl/validate-string-field-by-rule';
  *     The validation result.
  * @author Haixing Hu
  */
-export default function validatePhoneField(value, context = {}) {
+function validatePhoneField(value, context = {}) {
   context.label = context.label || '固定电话号码';
   return validateStringFieldByRule(value, Phone, context);
 }
+
+export default validatePhoneField;

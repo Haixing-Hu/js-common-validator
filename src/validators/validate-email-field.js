@@ -22,7 +22,9 @@ import validateStringFieldByRule from './impl/validate-string-field-by-rule';
  *     The validation result.
  * @author Haixing Hu
  */
-export default function validateEmailField(value, context = {}) {
+function validateEmailField(value, context = {}) {
   context.label = context.label || '电子邮件地址';
   return validateStringFieldByRule(value, Email, context);
 }
+
+export default validateEmailField;

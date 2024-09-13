@@ -22,6 +22,8 @@ import validateStringFieldByRule from './impl/validate-string-field-by-rule';
  *     The validation result.
  * @author Haixing Hu
  */
-export default function validateUppercaseAlphaNumberField(value, context = {}) {
+function validateUppercaseAlphaNumberField(value, context = {}) {
   return validateStringFieldByRule(value, UppercaseAlphaNumber, context);
 }
+
+export default validateUppercaseAlphaNumberField;

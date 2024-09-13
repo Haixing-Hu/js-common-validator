@@ -22,7 +22,9 @@ import validateStringFieldByRule from './impl/validate-string-field-by-rule';
  *     The validation result.
  * @author Haixing Hu
  */
-export default function validateTimestampField(value, context = {}) {
+function validateTimestampField(value, context = {}) {
   context.label = context.label || '时间戳';
   return validateStringFieldByRule(value, Timestamp, context);
 }
+
+export default validateTimestampField;

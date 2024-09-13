@@ -22,7 +22,9 @@ import validateStringFieldByRule from './impl/validate-string-field-by-rule';
  *     The validation result.
  * @author Haixing Hu
  */
-export default function validateUrlField(value, context = {}) {
+function validateUrlField(value, context = {}) {
   context.label = context.label || '网址';
   return validateStringFieldByRule(value, Url, context);
 }
+
+export default validateUrlField;

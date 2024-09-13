@@ -23,7 +23,7 @@ import ValidationResult from '../validation-result';
  *     The validation result.
  * @author Haixing Hu
  */
-export default function validateIntegerField(value, context = {}) {
+function validateIntegerField(value, context = {}) {
   const { owner, nullable, label, extraMessage } = context;
   const whose = (owner ? `${owner}的` : '');
   if (value === undefined || value === null || value === '') {
@@ -51,3 +51,5 @@ export default function validateIntegerField(value, context = {}) {
     return new ValidationResult(false, `${whose}${label}必须是整数${message}`);
   }
 }
+
+export default validateIntegerField;
