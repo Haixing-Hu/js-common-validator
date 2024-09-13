@@ -37,6 +37,7 @@ import validateStringFieldByRule from './validators/impl/validate-string-field-b
 import validateTimestampField from './validators/validate-timestamp-field';
 import validateUppercaseAlphaNumberField from './validators/validate-uppercase-alphanumber-field';
 import validateUrlField from './validators/validate-url-field';
+import Validator from './validators/validator';
 
 export {
   ValidationResult,
@@ -70,4 +71,7 @@ export {
   validateTimestampField,
   validateUppercaseAlphaNumberField,
   validateUrlField,
+  Validator,
 };
+
+export default Validator;
