@@ -6,7 +6,8 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
-import { ValidationResult, validatePersonNameField } from '../../src';
+import { ValidationResult } from '@haixing_hu/common-validation-rule';
+import { validatePersonNameField } from '../../src';
 
 /**
  * Unit test the {@link validatePersonNameField}.
@@ -118,6 +119,13 @@ describe('validatePersonNameField()', () => {
 
     obj.name = 'S S 张三';
     result = validatePersonNameField(obj.name, { instance: obj });
+    expect(result).toBeInstanceOf(ValidationResult);
+    expect(result.success).toBe(false);
+    expect(result.description).toBe('S S 张三的姓名格式不正确: 请填写正确的中英文名，中文名中勿加空格');
+  });
+  test('no context', () => {
+    obj.name = 'S S 张三';
+    const result = validatePersonNameField(obj.name);
     expect(result).toBeInstanceOf(ValidationResult);
     expect(result.success).toBe(false);
     expect(result.description).toBe('S S 张三的姓名格式不正确: 请填写正确的中英文名，中文名中勿加空格');

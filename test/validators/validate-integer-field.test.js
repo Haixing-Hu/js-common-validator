@@ -6,7 +6,8 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
-import { validateIntegerField, ValidationResult } from '../../src';
+import { ValidationResult } from '@haixing_hu/common-validation-rule';
+import { validateIntegerField } from '../../src';
 
 /**
  * 单元测试{@link validateIntegerField}。
@@ -228,7 +229,7 @@ describe('validateIntegerField', () => {
       label: '金额',
       nullable: true,
     };
-    const expected = new ValidationResult(false, '金额必须以数字或字符串形式表示');
+    const expected = new ValidationResult(false, '金额必须是整数');
     expect(validateIntegerField(str, context)).toEqual(expected);
   });
   test('bigint', () => {
@@ -257,6 +258,19 @@ describe('validateIntegerField', () => {
       nullable: true,
     };
     const expected = new ValidationResult(false, '金额必须是整数');
+    expect(validateIntegerField(id, context)).toEqual(expected);
+  });
+  test('string representation of bigint, with suffix, no context', () => {
+    const id = '123293829432948233242389n';
+    const expected = new ValidationResult(false, '数值必须是整数');
+    expect(validateIntegerField(id)).toEqual(expected);
+  });
+  test('string representation of bigint, with suffix, no label', () => {
+    const id = '123293829432948233242389n';
+    const context = {
+      nullable: true,
+    };
+    const expected = new ValidationResult(false, '数值必须是整数');
     expect(validateIntegerField(id, context)).toEqual(expected);
   });
 });

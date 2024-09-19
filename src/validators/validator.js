@@ -9,7 +9,9 @@
 import validateAlphaNumberField from './validate-alphanumber-field';
 import validateBoolField from './validate-bool-field';
 import validateDateField from './validate-date-field';
-import validateFloatField from './validate-float-field';
+import validateEmailField from './validate-email-field';
+import validateEnumField from './validate-enum-field';
+import validateNumberField from './validate-number-field';
 import validateIntegerField from './validate-integer-field';
 import validateMobileField from './validate-mobile-field';
 import validatePersonNameField from './validate-person-name-field';
@@ -22,11 +24,13 @@ const Validator = {
   alphaNum: validateAlphaNumberField,
   bool: validateBoolField,
   date: validateDateField,
-  float: validateFloatField,
+  email: validateEmailField,
+  enum: validateEnumField,
+  number: validateNumberField,
   id: validateIntegerField,
   int: validateIntegerField,
   mobile: validateMobileField,
-  money: validateFloatField,
+  money: validateNumberField,
   personName: validatePersonNameField,
   phone: validatePhoneField,
   timestamp: validateTimestampField,

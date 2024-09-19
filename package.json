@@ -1,6 +1,6 @@
 {
   "name": "@haixing_hu/common-validator",
-  "version": "3.4.0",
+  "version": "4.0.0",
   "description": "A JavaScript ES6 library for common fields validators",
   "author": "Haixing Hu (starfish.hu@gmail.com)",
   "license": "Apache-2.0",
@@ -36,9 +36,10 @@
     "es5": "check-es-version -e 5 -s true",
     "deploy": "npm run && npm run lint && npm run test && npm run build:all && npm publish --registry='https://registry.npmjs.com/' --access public"
   },
-  "dependencies": {
-    "email-validator": "^2.0.4",
-    "node-uri": "^1.1.2"
+  "peerDependencies": {
+    "@babel/runtime": "^7.25.6",
+    "@haixing_hu/common-decorator": "^2.8.0",
+    "@haixing_hu/common-validation-rule": "^1.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.23.2",
@@ -47,10 +48,19 @@
     "@babel/plugin-transform-class-properties": "^7.22.5",
     "@babel/plugin-transform-runtime": "^7.23.2",
     "@babel/preset-env": "^7.23.2",
-    "@babel/runtime": "^7.23.2",
+    "@babel/runtime": "^7.25.6",
+    "@haixing_hu/clone": "^1.7.2",
+    "@haixing_hu/common-decorator": "^2.8.0",
+    "@haixing_hu/common-util": "^4.8.2",
+    "@haixing_hu/common-validation-rule": "^1.1.0",
     "@haixing_hu/eslint-config": "^1.3.3",
     "@haixing_hu/jsdoc-minami": "^1.5.1",
+    "@haixing_hu/json": "^1.0.3",
+    "@haixing_hu/logging": "^1.3.3",
+    "@haixing_hu/naming-style": "^1.3.0",
     "@haixing_hu/rollup-builder": "^1.6.5",
+    "@haixing_hu/type-detect": "^1.1.0",
+    "@haixing_hu/typeinfo": "^3.0.0",
     "@jest/core": "^29.7.0",
     "@rollup/plugin-alias": "^5.0.1",
     "@rollup/plugin-babel": "^6.0.4",

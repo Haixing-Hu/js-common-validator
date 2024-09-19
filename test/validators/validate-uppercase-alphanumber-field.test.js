@@ -6,7 +6,8 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
-import { validateUppercaseAlphaNumberField, ValidationResult } from '../../src';
+import { ValidationResult } from '@haixing_hu/common-validation-rule';
+import { validateUppercaseAlphaNumberField } from '../../src';
 
 /**
  * 单元测试{@link validateUppercaseAlphaNumberField}。
@@ -188,12 +189,8 @@ describe('validateUppercaseAlphaNumberField', () => {
   });
   test('" A12cA  "', () => {
     const str = ' A12cA  ';
-    const context = {
-      label: '发票号',
-      nullable: true,
-    };
-    const expected = new ValidationResult(false, '发票号格式不正确');
-    expect(validateUppercaseAlphaNumberField(str, context)).toEqual(expected);
+    const expected = new ValidationResult(false, '格式不正确');
+    expect(validateUppercaseAlphaNumberField(str)).toEqual(expected);
   });
   test('"32010312938AX "', () => {
     const str = '32010312938AX ';

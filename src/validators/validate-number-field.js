@@ -6,14 +6,15 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
-import { PersonNameRule } from '@haixing_hu/common-validation-rule';
+import { NumberRule } from '@haixing_hu/common-validation-rule';
 import validateFieldByRule from './validate-field-by-rule';
 
 /**
- * Verify whether a field value of an object is a string representing a person's
- * name.
+ * Verify whether a field value of an object is a  number or a string
+ * representation of a number. Note that NaN and Infinite are considered as
+ * incorrect.
  *
- * @param {string} value
+ * @param {number|string} value
  *     The field value to be verified must be of string type; for other types,
  *     an error will be reported in the returned verification result.
  * @param {Object} context
@@ -69,11 +70,9 @@ import validateFieldByRule from './validate-field-by-rule';
  *     The validation result.
  * @author Haixing Hu
  */
-function validatePersonNameField(value, context = {}) {
-  context.label ??= '姓名';
-  context.owner ??= value;
-  context.invalidMessage ??= '{whose}{label}格式不正确: 请填写正确的中英文名，中文名中勿加空格';
-  return validateFieldByRule(value, PersonNameRule, context);
+function validateNumberField(value, context = {}) {
+  context.label ??= '数值';
+  return validateFieldByRule(value, NumberRule, context);
 }
 
-export default validatePersonNameField;
+export default validateNumberField;

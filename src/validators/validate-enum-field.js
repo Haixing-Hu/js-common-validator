@@ -6,12 +6,14 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
-import { PersonNameRule } from '@haixing_hu/common-validation-rule';
 import validateFieldByRule from './validate-field-by-rule';
+import getEnumRule from './impl/get-enum-rule';
 
 /**
- * Verify whether a field value of an object is a string representing a person's
- * name.
+ * Verify whether a field value of an object is a valid enumeration type or a
+ * string representation of a valid enumeration type.
+ *
+ * The enumeration type must be a class decorated by the `@Enum` decorator.
  *
  * @param {string} value
  *     The field value to be verified must be of string type; for other types,
@@ -67,13 +69,15 @@ import validateFieldByRule from './validate-field-by-rule';
  *       be used.
  * @return {ValidationResult}
  *     The validation result.
+ * @see Enum
  * @author Haixing Hu
  */
-function validatePersonNameField(value, context = {}) {
-  context.label ??= '姓名';
-  context.owner ??= value;
-  context.invalidMessage ??= '{whose}{label}格式不正确: 请填写正确的中英文名，中文名中勿加空格';
-  return validateFieldByRule(value, PersonNameRule, context);
+function validateEnumField(value, context = {}) {
+  context.label ??= '枚举';
+  context.nullMessage ??= '请选择{whose}{label}';
+  context.invalidMessage ??= '{whose}{label}的值不受支持';
+  const rule = getEnumRule(context.type);
+  return validateFieldByRule(value, rule, context);
 }
 
-export default validatePersonNameField;
+export default validateEnumField;

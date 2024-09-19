@@ -6,7 +6,8 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
-import { validateEmailField, ValidationResult } from '../../src';
+import { ValidationResult } from '@haixing_hu/common-validation-rule';
+import { validateEmailField } from '../../src';
 
 /**
  * 单元测试{@link validateEmailField}。
@@ -146,6 +147,22 @@ describe('validateEmailField()', () => {
 
     obj.email = 'ii~~@qq.com~';
     result = validateEmailField(obj.email, { instance: obj });
+    expect(result).toBeInstanceOf(ValidationResult);
+    expect(result.success).toBe(false);
+    expect(result.description).toBe('电子邮件地址格式不正确');
+  });
+
+  test('错误电子邮件地址, with label', () => {
+    obj.email = '123@123';
+    const result = validateEmailField(obj.email, { instance: obj, label: '邮箱' });
+    expect(result).toBeInstanceOf(ValidationResult);
+    expect(result.success).toBe(false);
+    expect(result.description).toBe('邮箱格式不正确');
+  });
+
+  test('错误电子邮件地址, no context', () => {
+    obj.email = '123@123';
+    const result = validateEmailField(obj.email);
     expect(result).toBeInstanceOf(ValidationResult);
     expect(result.success).toBe(false);
     expect(result.description).toBe('电子邮件地址格式不正确');

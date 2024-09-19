@@ -6,7 +6,8 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
-import { validateTimestampField, ValidationResult } from '../../src';
+import { ValidationResult } from '@haixing_hu/common-validation-rule';
+import { validateTimestampField } from '../../src';
 
 /**
  * 单元测试{@link validateTimestampField}。
@@ -89,10 +90,14 @@ describe('validateTimestampField', () => {
   test('" 2021-01-01T23", nullable = false', () => {
     const str = 123;
     const context = {
-      label: '创建时间',
       nullable: false,
     };
-    const expected = new ValidationResult(false, '创建时间必须以字符串形式表示');
+    const expected = new ValidationResult(false, '时间戳格式不正确');
     expect(validateTimestampField(str, context)).toEqual(expected);
+  });
+  test('" 2021-01-01T23", no context', () => {
+    const str = 123;
+    const expected = new ValidationResult(false, '时间戳格式不正确');
+    expect(validateTimestampField(str)).toEqual(expected);
   });
 });

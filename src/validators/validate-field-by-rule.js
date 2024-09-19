@@ -1,21 +1,23 @@
 ////////////////////////////////////////////////////////////////////////////////
 //
-//    Copyright (c) 2022 - 2023.
+//    Copyright (c) 2022 - 2024.
 //    Haixing Hu, Qubit Co. Ltd.
 //
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
-import { PersonNameRule } from '@haixing_hu/common-validation-rule';
-import validateFieldByRule from './validate-field-by-rule';
+import { ValidationResult } from '@haixing_hu/common-validation-rule';
+import withinRange from './impl/within-range';
 
 /**
- * Verify whether a field value of an object is a string representing a person's
- * name.
+ * Use the specified validation rule to validate a field.
  *
- * @param {string} value
- *     The field value to be verified must be of string type; for other types,
- *     an error will be reported in the returned verification result.
+ * @param {any} value
+ *     The field value to be verified.
+ * @param {object} rule
+ *     The rule object used for verification. The object must provide a
+ *     `isValid()` function to verify whether a string value conforms to the
+ *     rule.
  * @param {Object} context
  *     The validation context, which is the context object provided by the
  *     second argument of the validator function. It may have the following
@@ -69,11 +71,51 @@ import validateFieldByRule from './validate-field-by-rule';
  *     The validation result.
  * @author Haixing Hu
  */
-function validatePersonNameField(value, context = {}) {
-  context.label ??= '姓名';
-  context.owner ??= value;
-  context.invalidMessage ??= '{whose}{label}格式不正确: 请填写正确的中英文名，中文名中勿加空格';
-  return validateFieldByRule(value, PersonNameRule, context);
+function validateFieldByRule(value, rule, context = {}) {
+  if (typeof rule?.isValid !== 'function') {
+    throw new Error('The rule object must provide a isValid() function');
+  }
+  const whose = (context.owner ? `${context.owner}的` : '');
+  const label = context.label ?? '';
+  if (value === undefined || value === null || value === '') {
+    if (context.nullable) {
+      return new ValidationResult(true);
+    } else {
+      const message = (context.nullMessage ?? '请填写{whose}{label}')
+        .replaceAll('{whose}', whose)
+        .replaceAll('{label}', label);
+      return new ValidationResult(false, message);
+    }
+  }
+  if (rule.isValid(value.valueOf())) {  // call rule.isValid() with a primitive string
+    const { start, end, comparator } = context;
+    if (withinRange(value, rule, start, end, comparator)) {
+      return new ValidationResult(true);
+    } else if (start && end) {
+      const message = (context.outOfRangeMessage ?? '{whose}{label}必须在{start}和{end}之间')
+        .replaceAll('{whose}', whose)
+        .replaceAll('{label}', label)
+        .replaceAll('{start}', start)
+        .replaceAll('{end}', end);
+      return new ValidationResult(false, message);
+    } else if (start) {
+      const message = (context.beforeStartMessage ?? '{whose}{label}必须大于或等于{start}')
+        .replaceAll('{whose}', whose)
+        .replaceAll('{label}', label)
+        .replaceAll('{start}', start);
+      return new ValidationResult(false, message);
+    } else {
+      const message = (context.afterEndMessage ?? '{whose}{label}必须小于或等于{end}')
+        .replaceAll('{whose}', whose)
+        .replaceAll('{label}', label)
+        .replaceAll('{end}', end);
+      return new ValidationResult(false, message);
+    }
+  }
+  const message = (context.invalidMessage ?? '{whose}{label}格式不正确')
+    .replaceAll('{whose}', whose)
+    .replaceAll('{label}', label);
+  return new ValidationResult(false, message);
 }
 
-export default validatePersonNameField;
+export default validateFieldByRule;

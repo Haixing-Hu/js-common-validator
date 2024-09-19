@@ -6,14 +6,15 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
-import { validateAlphaNumberField, ValidationResult } from '../../src';
+import { ValidationResult } from '@haixing_hu/common-validation-rule';
+import Validator from '../../src';
 
 /**
- * 单元测试{@link validateAlphaNumberField}。
+ * 单元测试{@link Validator.alphaNum}。
  *
  * @author 胡海星
  */
-describe('validateAlphaNumberField', () => {
+describe('Validator.alphaNum', () => {
   test('undefined, allowEmpty = false', () => {
     const str = undefined;
     const context = {
@@ -21,7 +22,7 @@ describe('validateAlphaNumberField', () => {
       nullable: false,
     };
     const expected = new ValidationResult(false, '请填写发票号');
-    expect(validateAlphaNumberField(str, context)).toEqual(expected);
+    expect(Validator.alphaNum(str, context)).toEqual(expected);
   });
   test('null, allowEmpty = false', () => {
     const str = null;
@@ -30,7 +31,7 @@ describe('validateAlphaNumberField', () => {
       nullable: false,
     };
     const expected = new ValidationResult(false, '请填写发票号');
-    expect(validateAlphaNumberField(str, context)).toEqual(expected);
+    expect(Validator.alphaNum(str, context)).toEqual(expected);
   });
   test('"", allowEmpty = false', () => {
     const str = '';
@@ -39,7 +40,7 @@ describe('validateAlphaNumberField', () => {
       nullable: false,
     };
     const expected = new ValidationResult(false, '请填写发票号');
-    expect(validateAlphaNumberField(str, context)).toEqual(expected);
+    expect(Validator.alphaNum(str, context)).toEqual(expected);
   });
   test('undefined, allowEmpty = true', () => {
     const str = undefined;
@@ -48,7 +49,7 @@ describe('validateAlphaNumberField', () => {
       nullable: true,
     };
     const expected = new ValidationResult(true);
-    expect(validateAlphaNumberField(str, context)).toEqual(expected);
+    expect(Validator.alphaNum(str, context)).toEqual(expected);
   });
   test('null, allowEmpty = true', () => {
     const str = null;
@@ -57,7 +58,7 @@ describe('validateAlphaNumberField', () => {
       nullable: true,
     };
     const expected = new ValidationResult(true);
-    expect(validateAlphaNumberField(str, context)).toEqual(expected);
+    expect(Validator.alphaNum(str, context)).toEqual(expected);
   });
   test('"", allowEmpty = true', () => {
     const str = '';
@@ -66,7 +67,7 @@ describe('validateAlphaNumberField', () => {
       nullable: true,
     };
     const expected = new ValidationResult(true);
-    expect(validateAlphaNumberField(str, context)).toEqual(expected);
+    expect(Validator.alphaNum(str, context)).toEqual(expected);
   });
   test('"123"', () => {
     const str = '123';
@@ -75,7 +76,7 @@ describe('validateAlphaNumberField', () => {
       nullable: true,
     };
     const expected = new ValidationResult(true);
-    expect(validateAlphaNumberField(str, context)).toEqual(expected);
+    expect(Validator.alphaNum(str, context)).toEqual(expected);
   });
   test('"  -123  "', () => {
     const str = '  -123  ';
@@ -84,7 +85,7 @@ describe('validateAlphaNumberField', () => {
       nullable: true,
     };
     const expected = new ValidationResult(false, '发票号格式不正确');
-    expect(validateAlphaNumberField(str, context)).toEqual(expected);
+    expect(Validator.alphaNum(str, context)).toEqual(expected);
   });
   test('"  +123  "', () => {
     const str = '  +123  ';
@@ -93,7 +94,7 @@ describe('validateAlphaNumberField', () => {
       nullable: true,
     };
     const expected = new ValidationResult(false, '发票号格式不正确');
-    expect(validateAlphaNumberField(str, context)).toEqual(expected);
+    expect(Validator.alphaNum(str, context)).toEqual(expected);
   });
   test('"123.3"', () => {
     const str = '123.3';
@@ -102,7 +103,7 @@ describe('validateAlphaNumberField', () => {
       nullable: true,
     };
     const expected = new ValidationResult(false, '发票号格式不正确');
-    expect(validateAlphaNumberField(str, context)).toEqual(expected);
+    expect(Validator.alphaNum(str, context)).toEqual(expected);
   });
   test('" +.123"', () => {
     const str = ' +.123';
@@ -111,7 +112,7 @@ describe('validateAlphaNumberField', () => {
       nullable: true,
     };
     const expected = new ValidationResult(false, '发票号格式不正确');
-    expect(validateAlphaNumberField(str, context)).toEqual(expected);
+    expect(Validator.alphaNum(str, context)).toEqual(expected);
   });
   test('"-123. "', () => {
     const str = '-123. ';
@@ -120,7 +121,7 @@ describe('validateAlphaNumberField', () => {
       nullable: true,
     };
     const expected = new ValidationResult(false, '发票号格式不正确');
-    expect(validateAlphaNumberField(str, context)).toEqual(expected);
+    expect(Validator.alphaNum(str, context)).toEqual(expected);
   });
   test('"  123.3E-1"', () => {
     const str = '  123.3E-1';
@@ -129,7 +130,7 @@ describe('validateAlphaNumberField', () => {
       nullable: true,
     };
     const expected = new ValidationResult(false, '发票号格式不正确');
-    expect(validateAlphaNumberField(str, context)).toEqual(expected);
+    expect(Validator.alphaNum(str, context)).toEqual(expected);
   });
   test('"  123.3e+23 "', () => {
     const str = '  123.3e+23 ';
@@ -138,7 +139,7 @@ describe('validateAlphaNumberField', () => {
       nullable: true,
     };
     const expected = new ValidationResult(false, '发票号格式不正确');
-    expect(validateAlphaNumberField(str, context)).toEqual(expected);
+    expect(Validator.alphaNum(str, context)).toEqual(expected);
   });
   test('"  1a23.3e+23 "', () => {
     const str = '  1a23.3e+23 ';
@@ -147,7 +148,7 @@ describe('validateAlphaNumberField', () => {
       nullable: true,
     };
     const expected = new ValidationResult(false, '发票号格式不正确');
-    expect(validateAlphaNumberField(str, context)).toEqual(expected);
+    expect(Validator.alphaNum(str, context)).toEqual(expected);
   });
   test('"  NaN "', () => {
     const str = '  NaN ';
@@ -156,7 +157,7 @@ describe('validateAlphaNumberField', () => {
       nullable: true,
     };
     const expected = new ValidationResult(true);
-    expect(validateAlphaNumberField(str, context)).toEqual(expected);
+    expect(Validator.alphaNum(str, context)).toEqual(expected);
   });
   test('"  Infinity "', () => {
     const str = '  Infinity ';
@@ -165,7 +166,7 @@ describe('validateAlphaNumberField', () => {
       nullable: true,
     };
     const expected = new ValidationResult(true);
-    expect(validateAlphaNumberField(str, context)).toEqual(expected);
+    expect(Validator.alphaNum(str, context)).toEqual(expected);
   });
 
   test('"abc"', () => {
@@ -175,7 +176,7 @@ describe('validateAlphaNumberField', () => {
       nullable: true,
     };
     const expected = new ValidationResult(true);
-    expect(validateAlphaNumberField(str, context)).toEqual(expected);
+    expect(Validator.alphaNum(str, context)).toEqual(expected);
   });
   test('" A12cA  "', () => {
     const str = ' A12cA  ';
@@ -184,7 +185,7 @@ describe('validateAlphaNumberField', () => {
       nullable: true,
     };
     const expected = new ValidationResult(true);
-    expect(validateAlphaNumberField(str, context)).toEqual(expected);
+    expect(Validator.alphaNum(str, context)).toEqual(expected);
   });
   test('"32010312938AX "', () => {
     const str = '32010312938AX ';
@@ -193,6 +194,21 @@ describe('validateAlphaNumberField', () => {
       nullable: true,
     };
     const expected = new ValidationResult(true);
-    expect(validateAlphaNumberField(str, context)).toEqual(expected);
+    expect(Validator.alphaNum(str, context)).toEqual(expected);
+  });
+
+  test('"  1a23.3e+23 ", no label', () => {
+    const str = '  1a23.3e+23 ';
+    const context = {
+      nullable: true,
+    };
+    const expected = new ValidationResult(false, '格式不正确');
+    expect(Validator.alphaNum(str, context)).toEqual(expected);
+  });
+
+  test('"  1a23.3e+23 ", no context', () => {
+    const str = '  1a23.3e+23 ';
+    const expected = new ValidationResult(false, '格式不正确');
+    expect(Validator.alphaNum(str)).toEqual(expected);
   });
 });

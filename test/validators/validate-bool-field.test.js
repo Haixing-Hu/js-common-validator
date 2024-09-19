@@ -6,14 +6,15 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
-import { validateBoolField, ValidationResult } from '../../src';
+import { ValidationResult } from '@haixing_hu/common-validation-rule';
+import Validator from '../../src';
 
 /**
- * 单元测试{@link validateBoolField}。
+ * 单元测试{@link Validator.bool}。
  *
  * @author 胡海星
  */
-describe('validateBoolField', () => {
+describe('Validator.bool', () => {
   test('undefined, allowEmpty = false', () => {
     const val = undefined;
     const context = {
@@ -21,7 +22,7 @@ describe('validateBoolField', () => {
       nullable: false,
     };
     const expected = new ValidationResult(false, '请填写是否参与');
-    expect(validateBoolField(val, context)).toEqual(expected);
+    expect(Validator.bool(val, context)).toEqual(expected);
   });
   test('null, allowEmpty = false', () => {
     const val = null;
@@ -30,7 +31,7 @@ describe('validateBoolField', () => {
       nullable: false,
     };
     const expected = new ValidationResult(false, '请填写是否参与');
-    expect(validateBoolField(val, context)).toEqual(expected);
+    expect(Validator.bool(val, context)).toEqual(expected);
   });
   test('"", allowEmpty = false', () => {
     const val = '';
@@ -39,7 +40,7 @@ describe('validateBoolField', () => {
       nullable: false,
     };
     const expected = new ValidationResult(false, '请填写是否参与');
-    expect(validateBoolField(val, context)).toEqual(expected);
+    expect(Validator.bool(val, context)).toEqual(expected);
   });
   test('undefined, allowEmpty = true', () => {
     const val = undefined;
@@ -48,7 +49,7 @@ describe('validateBoolField', () => {
       nullable: true,
     };
     const expected = new ValidationResult(true);
-    expect(validateBoolField(val, context)).toEqual(expected);
+    expect(Validator.bool(val, context)).toEqual(expected);
   });
   test('null, allowEmpty = true', () => {
     const val = null;
@@ -57,7 +58,7 @@ describe('validateBoolField', () => {
       nullable: true,
     };
     const expected = new ValidationResult(true);
-    expect(validateBoolField(val, context)).toEqual(expected);
+    expect(Validator.bool(val, context)).toEqual(expected);
   });
   test('"", allowEmpty = true', () => {
     const val = '';
@@ -66,7 +67,7 @@ describe('validateBoolField', () => {
       nullable: true,
     };
     const expected = new ValidationResult(true);
-    expect(validateBoolField(val, context)).toEqual(expected);
+    expect(Validator.bool(val, context)).toEqual(expected);
   });
   test('"true"', () => {
     const val = 'true';
@@ -75,7 +76,7 @@ describe('validateBoolField', () => {
       nullable: true,
     };
     const expected = new ValidationResult(true);
-    expect(validateBoolField(val, context)).toEqual(expected);
+    expect(Validator.bool(val, context)).toEqual(expected);
   });
   test('"  FalsE  "', () => {
     const val = '  FalsE  ';
@@ -84,7 +85,7 @@ describe('validateBoolField', () => {
       nullable: true,
     };
     const expected = new ValidationResult(true);
-    expect(validateBoolField(val, context)).toEqual(expected);
+    expect(Validator.bool(val, context)).toEqual(expected);
   });
   test('"  TRUE  "', () => {
     const val = '  TRUE  ';
@@ -93,7 +94,7 @@ describe('validateBoolField', () => {
       nullable: true,
     };
     const expected = new ValidationResult(true);
-    expect(validateBoolField(val, context)).toEqual(expected);
+    expect(Validator.bool(val, context)).toEqual(expected);
   });
   test('"False."', () => {
     const val = 'False.';
@@ -101,8 +102,8 @@ describe('validateBoolField', () => {
       label: '是否参与',
       nullable: true,
     };
-    const expected = new ValidationResult(false, '是否参与必须是布尔值');
-    expect(validateBoolField(val, context)).toEqual(expected);
+    const expected = new ValidationResult(false, '是否参与格式不正确');
+    expect(Validator.bool(val, context)).toEqual(expected);
   });
   test('" xxx"', () => {
     const val = ' xxx';
@@ -110,8 +111,8 @@ describe('validateBoolField', () => {
       label: '是否参与',
       nullable: true,
     };
-    const expected = new ValidationResult(false, '是否参与必须是布尔值');
-    expect(validateBoolField(val, context)).toEqual(expected);
+    const expected = new ValidationResult(false, '是否参与格式不正确');
+    expect(Validator.bool(val, context)).toEqual(expected);
   });
   test('"false. "', () => {
     const val = 'false. ';
@@ -119,8 +120,8 @@ describe('validateBoolField', () => {
       label: '是否参与',
       nullable: true,
     };
-    const expected = new ValidationResult(false, '是否参与必须是布尔值');
-    expect(validateBoolField(val, context)).toEqual(expected);
+    const expected = new ValidationResult(false, '是否参与格式不正确');
+    expect(Validator.bool(val, context)).toEqual(expected);
   });
   test('true', () => {
     const val = true;
@@ -129,7 +130,7 @@ describe('validateBoolField', () => {
       nullable: true,
     };
     const expected = new ValidationResult(true);
-    expect(validateBoolField(val, context)).toEqual(expected);
+    expect(Validator.bool(val, context)).toEqual(expected);
   });
   test('false', () => {
     const val = false;
@@ -138,7 +139,7 @@ describe('validateBoolField', () => {
       nullable: true,
     };
     const expected = new ValidationResult(true);
-    expect(validateBoolField(val, context)).toEqual(expected);
+    expect(Validator.bool(val, context)).toEqual(expected);
   });
   test('Boolean(true)', () => {
     const val = Boolean(true);
@@ -147,7 +148,7 @@ describe('validateBoolField', () => {
       nullable: true,
     };
     const expected = new ValidationResult(true);
-    expect(validateBoolField(val, context)).toEqual(expected);
+    expect(Validator.bool(val, context)).toEqual(expected);
   });
   test('Boolean(false)', () => {
     const val = Boolean(false);
@@ -156,7 +157,7 @@ describe('validateBoolField', () => {
       nullable: true,
     };
     const expected = new ValidationResult(true);
-    expect(validateBoolField(val, context)).toEqual(expected);
+    expect(Validator.bool(val, context)).toEqual(expected);
   });
   test('object, allowEmpty = false', () => {
     const val = {};
@@ -164,7 +165,20 @@ describe('validateBoolField', () => {
       label: '是否参与',
       nullable: true,
     };
-    const expected = new ValidationResult(false, '是否参与必须以布尔值或字符串形式表示');
-    expect(validateBoolField(val, context)).toEqual(expected);
+    const expected = new ValidationResult(false, '是否参与格式不正确');
+    expect(Validator.bool(val, context)).toEqual(expected);
+  });
+  test('object, allowEmpty = false, no label', () => {
+    const val = {};
+    const context = {
+      nullable: true,
+    };
+    const expected = new ValidationResult(false, '布尔值格式不正确');
+    expect(Validator.bool(val, context)).toEqual(expected);
+  });
+  test('object, allowEmpty = false, no context', () => {
+    const val = {};
+    const expected = new ValidationResult(false, '布尔值格式不正确');
+    expect(Validator.bool(val)).toEqual(expected);
   });
 });
