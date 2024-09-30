@@ -6,13 +6,12 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
-import { TimestampRule } from '@haixing_hu/common-validation-rule';
-import compareTimestamp from './impl/timestamp-comparator';
+import { LocalDateTimeRule } from '@haixing_hu/common-validation-rule';
 import validateFieldByRule from './validate-field-by-rule';
+import compareDateTime from './impl/date-time-comparator';
 
 /**
- * Verify whether a field value of an object is a string representation of a
- * timestamp.
+ * Verify whether a field value of an object represents a valid local date time.
  *
  * @param {string} value
  *     The field value to be verified must be of string type; for other types,
@@ -70,14 +69,14 @@ import validateFieldByRule from './validate-field-by-rule';
  *     The validation result.
  * @author Haixing Hu
  */
-function validateTimestampField(value, context = {}) {
-  context.label ??= '时间戳';
+function validateDateTimeField(value, context = {}) {
+  context.label ??= '日期时间';
   context.nullMessage ??= '请选择或填写{whose}{label}';
   context.beforeStartMessage ??= '{whose}{label}不能早于{start}';
   context.afterEndMessage ??= '{whose}{label}不能晚于{end}';
   context.outOfRangeMessage ??= '{whose}{label}必须在{start}和{end}之间';
-  context.comparator = compareTimestamp;
-  return validateFieldByRule(value, TimestampRule, context);
+  context.comparator = compareDateTime;
+  return validateFieldByRule(value, LocalDateTimeRule, context);
 }
 
-export default validateTimestampField;
+export default validateDateTimeField;

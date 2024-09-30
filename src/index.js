@@ -11,6 +11,7 @@ import validateAlphaNumberField from './validators/validate-alphanumber-field';
 import validateBoolField from './validators/validate-bool-field';
 import validateDateField from './validators/validate-date-field';
 import validateTimeField from './validators/validate-time-field';
+import validateDateTimeField from './validators/validate-date-time-field';
 import validateEmailField from './validators/validate-email-field';
 import validateEnumField from './validators/validate-enum-field';
 import validateNumberField from './validators/validate-number-field';
@@ -29,6 +30,7 @@ export {
   validateBoolField,
   validateDateField,
   validateTimeField,
+  validateDateTimeField,
   validateEmailField,
   validateEnumField,
   validateNumberField,

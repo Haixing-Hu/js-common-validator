@@ -10,6 +10,7 @@ import validateAlphaNumberField from './validate-alphanumber-field';
 import validateBoolField from './validate-bool-field';
 import validateDateField from './validate-date-field';
 import validateTimeField from './validate-time-field';
+import validateDateTimeField from './validate-date-time-field';
 import validateEmailField from './validate-email-field';
 import validateEnumField from './validate-enum-field';
 import validateNumberField from './validate-number-field';
@@ -26,6 +27,7 @@ const Validator = {
   bool: validateBoolField,
   date: validateDateField,
   time: validateTimeField,
+  datetime: validateDateTimeField,
   email: validateEmailField,
   enum: validateEnumField,
   number: validateNumberField,
