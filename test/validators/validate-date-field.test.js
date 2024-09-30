@@ -136,7 +136,7 @@ describe('validateDateField', () => {
     expect(validateDateField(str, context)).toEqual(expected);
   });
 
-  test('value = "2021-01-12", startDate = "2021-01-13"', () => {
+  test('value = "2021-01-12", start = "2021-01-13"', () => {
     const str = '2021-01-12';
     const context = {
       label: '就诊日期',
@@ -146,7 +146,7 @@ describe('validateDateField', () => {
     const expected = new ValidationResult(false, '就诊日期不能早于2021-01-13');
     expect(validateDateField(str, context)).toEqual(expected);
   });
-  test('value = "2021-01-12", endDate = "2021-01-11"', () => {
+  test('value = "2021-01-12", end = "2021-01-11"', () => {
     const str = '2021-01-12';
     const context = {
       label: '就诊日期',
@@ -157,7 +157,7 @@ describe('validateDateField', () => {
     expect(validateDateField(str, context)).toEqual(expected);
   });
 
-  test('value = "2021-01-12", startDate = "2021-01-12", endDate = "2021-01-13"', () => {
+  test('value = "2021-01-12", start = "2021-01-12", end = "2021-01-13"', () => {
     const str = '2021-01-12';
     const context = {
       label: '就诊日期',
@@ -168,7 +168,7 @@ describe('validateDateField', () => {
     const expected = new ValidationResult(true);
     expect(validateDateField(str, context)).toEqual(expected);
   });
-  test('value = "2021-02-01", startDate = "2021-01-12", endDate = "2021-01-13"', () => {
+  test('value = "2021-02-01", start = "2021-01-12", end = "2021-01-13"', () => {
     const str = '2021-02-01';
     const context = {
       label: '就诊日期',
