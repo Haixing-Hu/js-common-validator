@@ -87,7 +87,7 @@ function validateFieldByRule(value, rule, context = {}) {
       return new ValidationResult(false, message);
     }
   }
-  if (rule.isValid(value.valueOf())) {  // call rule.isValid() with a primitive string
+  if (rule.isValid(value, context)) {
     const { start, end, comparator } = context;
     if (withinRange(value, rule, start, end, comparator)) {
       return new ValidationResult(true);
