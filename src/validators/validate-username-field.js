@@ -1,24 +1,21 @@
 ////////////////////////////////////////////////////////////////////////////////
 //
-//    Copyright (c) 2022 - 2024.
+//    Copyright (c) 2022 - 2023.
 //    Haixing Hu, Qubit Co. Ltd.
 //
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
-import { ValidationResult } from '@haixing_hu/common-validation-rule';
-import checkLength from './impl/check-length';
-import withinRange from './impl/within-range';
+import { UsernameRule } from '@haixing_hu/common-validation-rule';
+import validateFieldByRule from './validate-field-by-rule';
 
 /**
- * Use the specified validation rule to validate a field.
+ * Verify whether a field value of an object is a string representing a valid
+ * username.
  *
- * @param {any} value
- *     The field value to be verified.
- * @param {object} rule
- *     The rule object used for verification. The object must provide a
- *     `isValid()` function to verify whether a string value conforms to the
- *     rule.
+ * @param {string} value
+ *     The field value to be verified must be of string type; for other types,
+ *     an error will be reported in the returned verification result.
  * @param {Object} context
  *     The validation context, which is the context object provided by the
  *     second argument of the validator function. It may have the following
@@ -86,71 +83,14 @@ import withinRange from './impl/within-range';
  *     The validation result.
  * @author Haixing Hu
  */
-function validateFieldByRule(value, rule, context = {}) {
-  if (typeof rule?.isValid !== 'function') {
-    throw new Error('The rule object must provide a isValid() function');
-  }
-  const whose = (context.owner ? `${context.owner}的` : '');
-  const label = context.label ?? '';
-  // check the nullish value
-  if (value === undefined || value === null || value === '') {
-    if (context.nullable) {
-      return new ValidationResult(true);
-    } else {
-      const message = (context.nullMessage ?? '请填写{whose}{label}')
-        .replaceAll('{whose}', whose)
-        .replaceAll('{label}', label);
-      return new ValidationResult(false, message);
-    }
-  }
-  // check the length of the value
-  const lengthValid = checkLength(value, context.minLength, context.maxLength);
-  if (lengthValid < 0) {
-    const message = (context.tooShortMessage ?? '{whose}{label}长度必须至少是{min}')
-      .replaceAll('{whose}', whose)
-      .replaceAll('{label}', label)
-      .replaceAll('{min}', context.minLength);
-    return new ValidationResult(false, message);
-  } else if (lengthValid > 0) {
-    const message = (context.tooLongMessage ?? '{whose}{label}长度不能超过{max}')
-      .replaceAll('{whose}', whose)
-      .replaceAll('{label}', label)
-      .replaceAll('{max}', context.maxLength);
-    return new ValidationResult(false, message);
-  }
-  // check the value by the rule
-  if (rule.isValid(value, context)) {
-    // check the value is within the specified range
-    const { start, end, comparator } = context;
-    if (withinRange(value, rule, start, end, comparator)) {
-      // the value is valid and within the specified range
-      return new ValidationResult(true);
-    } else if (start && end) {
-      const message = (context.outOfRangeMessage ?? '{whose}{label}必须在{start}和{end}之间')
-        .replaceAll('{whose}', whose)
-        .replaceAll('{label}', label)
-        .replaceAll('{start}', start)
-        .replaceAll('{end}', end);
-      return new ValidationResult(false, message);
-    } else if (start) {
-      const message = (context.beforeStartMessage ?? '{whose}{label}必须大于或等于{start}')
-        .replaceAll('{whose}', whose)
-        .replaceAll('{label}', label)
-        .replaceAll('{start}', start);
-      return new ValidationResult(false, message);
-    } else {
-      const message = (context.afterEndMessage ?? '{whose}{label}必须小于或等于{end}')
-        .replaceAll('{whose}', whose)
-        .replaceAll('{label}', label)
-        .replaceAll('{end}', end);
-      return new ValidationResult(false, message);
-    }
-  }
-  // the value is invalid according to the rule
-  const message = (context.invalidMessage ?? '{whose}{label}格式不正确')
-    .replaceAll('{whose}', whose)
-    .replaceAll('{label}', label);
-  return new ValidationResult(false, message);
+function validateUsernameField(value, context = {}) {
+  context.label ??= '用户名';
+  context.minLength ??= UsernameRule.minLength;
+  context.maxLength ??= UsernameRule.maxLength;
+  context.invalidMessage ??= '{whose}{label}必须以字母或数字开头，只能包含字母、数字、下划线、连字符、点号和 @ 符号';
+  context.tooShortMessage ??= '{whose}{label}不能少于{min}个字符';
+  context.tooLongMessage ??= '{whose}{label}不能多于{max}个字符';
+  return validateFieldByRule(value, UsernameRule, context);
 }
 
-export default validateFieldByRule;
+export default validateUsernameField;

@@ -1476,19 +1476,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@haixing_hu/common-decorator@npm:^3.7.0":
-  version: 3.7.0
-  resolution: "@haixing_hu/common-decorator@npm:3.7.0"
+"@haixing_hu/common-decorator@npm:^3.7.1":
+  version: 3.7.1
+  resolution: "@haixing_hu/common-decorator@npm:3.7.1"
   peerDependencies:
     "@babel/runtime": ^7.24.0
     "@haixing_hu/clone": ^1.12.0
     "@haixing_hu/common-util": ^5.2.0
-    "@haixing_hu/common-validation-rule": ^1.3.0
+    "@haixing_hu/common-validation-rule": ^1.4.2
     "@haixing_hu/json": ^1.1.0
     "@haixing_hu/naming-style": ^1.3.1
     "@haixing_hu/type-detect": ^1.2.0
     "@haixing_hu/typeinfo": ^3.1.0
-  checksum: 10c0/741b385ad0e0bdc7fdc5fec3ae3df0a677ea06bc254fdd7470df3d385e276d3b6f7f4056972a113fab4de0a32c06b9d7bc5668010596916ceb0d6c509db66784
+  checksum: 10c0/ff10f1c5cd14942310c465e77b565dfb41e0d63e2ae903dd5251f21e1c83987f6ca11d04d94bdf3601d06fdc952591f5f4c07c3f33eea23d1c88cefc4c47b6c4
   languageName: node
   linkType: hard
 
@@ -1506,15 +1506,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@haixing_hu/common-validation-rule@npm:^1.3.0":
-  version: 1.3.0
-  resolution: "@haixing_hu/common-validation-rule@npm:1.3.0"
+"@haixing_hu/common-validation-rule@npm:^1.4.2":
+  version: 1.4.2
+  resolution: "@haixing_hu/common-validation-rule@npm:1.4.2"
   dependencies:
     email-validator: "npm:^2.0.4"
     node-uri: "npm:^1.1.2"
   peerDependencies:
     "@babel/runtime": ^7.23.0
-  checksum: 10c0/e1443f056dc0ebd3e5a76ab34d1d5fae24cf8a1eb4a813ff8eae64998ccf28510d5fc278dda9e0f041006ad1c191d307bad8f0056747b1d7c96a151ae798eb9a
+  checksum: 10c0/ae5cc89d7facb6f9ef4498dd1e3cf986e3abc89af201e475933476611ea0322c3eb03b2cd84b2dcc75382c35e768e55c637c81ec77603d174cbd6f43aa9a1ed2
   languageName: node
   linkType: hard
 
@@ -1530,9 +1530,9 @@ __metadata:
     "@babel/preset-env": "npm:^7.23.2"
     "@babel/runtime": "npm:^7.25.6"
     "@haixing_hu/clone": "npm:^1.12.0"
-    "@haixing_hu/common-decorator": "npm:^3.7.0"
+    "@haixing_hu/common-decorator": "npm:^3.7.1"
     "@haixing_hu/common-util": "npm:^5.2.0"
-    "@haixing_hu/common-validation-rule": "npm:^1.3.0"
+    "@haixing_hu/common-validation-rule": "npm:^1.4.2"
     "@haixing_hu/eslint-config": "npm:^1.3.3"
     "@haixing_hu/jsdoc-minami": "npm:^1.5.1"
     "@haixing_hu/json": "npm:^1.1.0"
@@ -1567,7 +1567,7 @@ __metadata:
   peerDependencies:
     "@babel/runtime": ^7.25.6
     "@haixing_hu/common-decorator": ^3.7.0
-    "@haixing_hu/common-validation-rule": ^1.3.0
+    "@haixing_hu/common-validation-rule": ^1.4.2
   languageName: unknown
   linkType: soft
 

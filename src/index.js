@@ -17,11 +17,13 @@ import validateEnumField from './validators/validate-enum-field';
 import validateNumberField from './validators/validate-number-field';
 import validateIntegerField from './validators/validate-integer-field';
 import validateMobileField from './validators/validate-mobile-field';
+import validatePasswordField from './validators/validate-password-field';
 import validatePersonNameField from './validators/validate-person-name-field';
 import validatePhoneField from './validators/validate-phone-field';
 import validateTimestampField from './validators/validate-timestamp-field';
 import validateUppercaseAlphaNumberField from './validators/validate-uppercase-alphanumber-field';
 import validateUrlField from './validators/validate-url-field';
+import validateUsernameField from './validators/validate-username-field';
 import Validator from './validators/validator';
 
 export {
@@ -36,11 +38,13 @@ export {
   validateNumberField,
   validateIntegerField,
   validateMobileField,
+  validatePasswordField,
   validatePersonNameField,
   validatePhoneField,
   validateTimestampField,
   validateUppercaseAlphaNumberField,
   validateUrlField,
+  validateUsernameField,
   Validator,
 };
 
