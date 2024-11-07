@@ -178,7 +178,7 @@ describe('validateUsernameField()', () => {
   });
   test('用户名太短，用户无姓名', () => {
     obj.username = '123';
-    const result = validateUsernameField(obj.username, { instance: obj});
+    const result = validateUsernameField(obj.username, { instance: obj });
     expect(result).toBeInstanceOf(ValidationResult);
     expect(result.success).toBe(false);
     expect(result.description).toBe('用户名不能少于4个字符');
@@ -199,7 +199,7 @@ describe('validateUsernameField()', () => {
   });
   test('用户名太长，用户无姓名', () => {
     obj.username = '1234567890123456789012345678901234567890';
-    const result = validateUsernameField(obj.username, { instance: obj});
+    const result = validateUsernameField(obj.username, { instance: obj });
     expect(result).toBeInstanceOf(ValidationResult);
     expect(result.success).toBe(false);
     expect(result.description).toBe('用户名不能多于32个字符');

@@ -178,7 +178,7 @@ describe('validatePasswordField()', () => {
   });
   test('密码太短，用户无姓名', () => {
     obj.password = '12345';
-    const result = validatePasswordField(obj.password, { instance: obj});
+    const result = validatePasswordField(obj.password, { instance: obj });
     expect(result).toBeInstanceOf(ValidationResult);
     expect(result.success).toBe(false);
     expect(result.description).toBe('密码不能少于6个字符');
@@ -199,7 +199,7 @@ describe('validatePasswordField()', () => {
   });
   test('密码太长，用户无姓名', () => {
     obj.password = '1234567890123456789012345678901234567890';
-    const result = validatePasswordField(obj.password, { instance: obj});
+    const result = validatePasswordField(obj.password, { instance: obj });
     expect(result).toBeInstanceOf(ValidationResult);
     expect(result.success).toBe(false);
     expect(result.description).toBe('密码不能多于32个字符');
