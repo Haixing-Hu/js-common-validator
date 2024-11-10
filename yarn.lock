@@ -1476,9 +1476,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@haixing_hu/common-decorator@npm:^3.7.1":
-  version: 3.7.1
-  resolution: "@haixing_hu/common-decorator@npm:3.7.1"
+"@haixing_hu/common-decorator@npm:^3.8.0":
+  version: 3.8.0
+  resolution: "@haixing_hu/common-decorator@npm:3.8.0"
   peerDependencies:
     "@babel/runtime": ^7.24.0
     "@haixing_hu/clone": ^1.12.0
@@ -1488,7 +1488,7 @@ __metadata:
     "@haixing_hu/naming-style": ^1.3.1
     "@haixing_hu/type-detect": ^1.2.0
     "@haixing_hu/typeinfo": ^3.1.0
-  checksum: 10c0/ff10f1c5cd14942310c465e77b565dfb41e0d63e2ae903dd5251f21e1c83987f6ca11d04d94bdf3601d06fdc952591f5f4c07c3f33eea23d1c88cefc4c47b6c4
+  checksum: 10c0/7f871db1d4ce2b46991ddf3accdfe973d3d47673e56b2718011a2f666ae107a6073122a76e0c713071c13e8f21cc050426d0b94d256ec54a95417e910a5b0523
   languageName: node
   linkType: hard
 
@@ -1530,7 +1530,7 @@ __metadata:
     "@babel/preset-env": "npm:^7.23.2"
     "@babel/runtime": "npm:^7.25.6"
     "@haixing_hu/clone": "npm:^1.12.0"
-    "@haixing_hu/common-decorator": "npm:^3.7.1"
+    "@haixing_hu/common-decorator": "npm:^3.8.0"
     "@haixing_hu/common-util": "npm:^5.2.0"
     "@haixing_hu/common-validation-rule": "npm:^1.4.2"
     "@haixing_hu/eslint-config": "npm:^1.3.3"
@@ -1566,7 +1566,7 @@ __metadata:
     rollup-plugin-visualizer: "npm:^5.12.0"
   peerDependencies:
     "@babel/runtime": ^7.25.6
-    "@haixing_hu/common-decorator": ^3.7.0
+    "@haixing_hu/common-decorator": ^3.8.0
     "@haixing_hu/common-validation-rule": ^1.4.2
   languageName: unknown
   linkType: soft
