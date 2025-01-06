@@ -6,7 +6,7 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
-import { EmailRule } from '@haixing_hu/common-validation-rule';
+import { EmailRule } from '@qubit-ltd/common-validation-rule';
 import validateFieldByRule from './validate-field-by-rule';
 
 /**

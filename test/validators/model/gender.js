@@ -6,7 +6,7 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
-import { Enum } from '@haixing_hu/common-decorator';
+import { Enum } from '@qubit-ltd/common-decorator';
 
 @Enum
 class Gender {

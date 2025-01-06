@@ -6,7 +6,7 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
-import { isEnumClass } from '@haixing_hu/common-decorator';
+import { isEnumClass } from '@qubit-ltd/common-decorator';
 
 /**
  * Gets the validation rule object for the specified enumeration type.
