@@ -1,6 +1,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 //
-//    Copyright (c) 2022 - 2023.
+//    Copyright (c) 2022 - 2024.
 //    Haixing Hu, Qubit Co. Ltd.
 //
 //    All rights reserved.
@@ -26,5 +26,17 @@ module.exports = {
   ],
   collectCoverage: true,
   coverageDirectory: './coverage',
-  collectCoverageFrom: ['**/src/**/*.js'],
+  collectCoverageFrom: [
+    'src/index.js',
+    'src/validators/**/*.js',
+  ],
+  coverageReporters: ['json', 'lcov', 'text', 'clover', 'text-summary'],
+  coverageThreshold: {
+    global: {
+      branches: 100,
+      functions: 100,
+      lines: 100,
+      statements: 100
+    }
+  }
 };
