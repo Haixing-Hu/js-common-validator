@@ -1,6 +1,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 //
-//    Copyright (c) 2022 - 2024.
+//    Copyright (c) 2022 - 2025.
 //    Haixing Hu, Qubit Co. Ltd.
 //
 //    All rights reserved.
@@ -73,7 +73,7 @@ describe('checkLength()', () => {
   test('当只提供min时，只检查最小长度', () => {
     const obj = 'a';
     expect(checkLength(obj, 5)).toBe(-1);
-    
+
     const obj2 = 'abcdefg';
     expect(checkLength(obj2, 5)).toBe(0);
   });
@@ -81,8 +81,8 @@ describe('checkLength()', () => {
   test('当只提供max时，只检查最大长度', () => {
     const obj = 'abcdefghijk';
     expect(checkLength(obj, undefined, 5)).toBe(1);
-    
+
     const obj2 = 'abc';
     expect(checkLength(obj2, undefined, 5)).toBe(0);
   });
-}); 
+});

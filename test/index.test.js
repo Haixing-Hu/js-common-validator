@@ -1,6 +1,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 //
-//    Copyright (c) 2022 - 2024.
+//    Copyright (c) 2022 - 2025.
 //    Haixing Hu, Qubit Co. Ltd.
 //
 //    All rights reserved.
@@ -55,7 +55,7 @@ describe('index.js exports', () => {
     expect(typeof validateUppercaseAlphaNumberField).toBe('function');
     expect(typeof validateUrlField).toBe('function');
     expect(typeof validateUsernameField).toBe('function');
-    
+
     // 确保Validator是一个对象
     expect(typeof Validator).toBe('object');
     expect(Validator).not.toBeNull();
@@ -64,4 +64,4 @@ describe('index.js exports', () => {
   test('默认导出应该是Validator对象', () => {
     expect(defaultExport).toBe(Validator);
   });
-}); 
+});
