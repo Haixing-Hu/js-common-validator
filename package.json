@@ -1,6 +1,6 @@
 {
   "name": "@qubit-ltd/common-validator",
-  "version": "4.7.6",
+  "version": "4.8.0",
   "description": "A JavaScript ES6 library for common fields validators",
   "author": "Haixing Hu (starfish.hu@gmail.com)",
   "license": "Apache-2.0",
