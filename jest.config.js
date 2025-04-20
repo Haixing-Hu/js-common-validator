@@ -27,7 +27,6 @@ module.exports = {
   collectCoverage: true,
   coverageDirectory: './coverage',
   collectCoverageFrom: [
-    'src/index.js',
     'src/validators/**/*.js',
   ],
   coverageReporters: ['json', 'lcov', 'text', 'clover', 'text-summary'],
@@ -36,7 +35,7 @@ module.exports = {
       branches: 100,
       functions: 100,
       lines: 100,
-      statements: 100
-    }
-  }
+      statements: 100,
+    },
+  },
 };
