@@ -2183,15 +2183,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@qubit-ltd/common-validation-rule@npm:^1.4.6":
-  version: 1.4.6
-  resolution: "@qubit-ltd/common-validation-rule@npm:1.4.6"
+"@qubit-ltd/common-validation-rule@npm:^1.4.7":
+  version: 1.4.7
+  resolution: "@qubit-ltd/common-validation-rule@npm:1.4.7"
   dependencies:
     email-validator: "npm:^2.0.4"
     node-uri: "npm:^1.1.2"
   peerDependencies:
     "@babel/runtime": ^7.26.0
-  checksum: 10c0/2307de74458e5b0bfbbc9a97defbcec81e7f2996b5889aab9423a890485a97936ad51f23b03041edc4099badab9199f355faeacf8b4ec05b9abda286b8d3e330
+  checksum: 10c0/3a09f67d6325bc4bd779f952e6c1fbf347b843da098ced990f49da8bfe06cadf3d876b67357a016f899049f03f2bcdf5084017797076b195c1399d34fb491f69
   languageName: node
   linkType: hard
 
@@ -2202,7 +2202,6 @@ __metadata:
     "@babel/core": "npm:^7.26.10"
     "@babel/eslint-parser": "npm:^7.27.0"
     "@babel/plugin-proposal-decorators": "npm:^7.25.9"
-    "@babel/plugin-transform-class-properties": "npm:^7.25.9"
     "@babel/plugin-transform-runtime": "npm:^7.26.10"
     "@babel/preset-env": "npm:^7.26.9"
     "@babel/runtime": "npm:^7.27.0"
@@ -2210,7 +2209,7 @@ __metadata:
     "@qubit-ltd/clone": "npm:^1.13.0"
     "@qubit-ltd/common-decorator": "npm:^3.9.0"
     "@qubit-ltd/common-util": "npm:^5.4.0"
-    "@qubit-ltd/common-validation-rule": "npm:^1.4.6"
+    "@qubit-ltd/common-validation-rule": "npm:^1.4.7"
     "@qubit-ltd/eslint-config": "npm:^1.3.4"
     "@qubit-ltd/jsdoc-minami": "npm:^1.5.2"
     "@qubit-ltd/json": "npm:^1.2.0"
@@ -2226,7 +2225,6 @@ __metadata:
     "@rollup/plugin-node-resolve": "npm:^16.0.1"
     "@rollup/plugin-terser": "npm:^0.4.4"
     babel-jest: "npm:^29.7.0"
-    babel-plugin-transform-object-hasown: "npm:^1.1.0"
     check-es-version: "npm:^1.5.1"
     core-js: "npm:^3.41.0"
     cross-env: "npm:^7.0.3"
@@ -2243,8 +2241,8 @@ __metadata:
     rollup-plugin-visualizer: "npm:^5.14.0"
   peerDependencies:
     "@babel/runtime": ^7.26.0
-    "@qubit-ltd/common-decorator": ^3.8.10
-    "@qubit-ltd/common-validation-rule": ^1.4.4
+    "@qubit-ltd/common-decorator": ^3.9.1
+    "@qubit-ltd/common-validation-rule": ^1.5.0
   languageName: unknown
   linkType: soft
 
@@ -3157,13 +3155,6 @@ __metadata:
   peerDependencies:
     "@babel/core": ^7.4.0 || ^8.0.0-0 <8.0.0
   checksum: 10c0/bc541037cf7620bc84ddb75a1c0ce3288f90e7d2799c070a53f8a495c8c8ae0316447becb06f958dd25dcce2a2fce855d318ecfa48036a1ddb218d55aa38a744
-  languageName: node
-  linkType: hard
-
-"babel-plugin-transform-object-hasown@npm:^1.1.0":
-  version: 1.1.0
-  resolution: "babel-plugin-transform-object-hasown@npm:1.1.0"
-  checksum: 10c0/85e9532c9ee6b29443229ec141e012186e9a3686b448d47f115aef8731bf66b5d49ba69d39b253b81c7dfe305f61c947acf284f72317f05400ae25637e15c62e
   languageName: node
   linkType: hard
 
