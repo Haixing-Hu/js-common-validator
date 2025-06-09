@@ -16,12 +16,12 @@ import { Enum } from '@qubit-ltd/common-decorator';
 @Enum
 class Status {
   static ACTIVE = { name: '激活', code: 'active' };
-  
+
   static INACTIVE = { name: '未激活', code: 'inactive' };
-  
+
   static PENDING = { name: '待处理', code: 'pending' };
-  
+
   static DISABLED = { name: '禁用', code: 'disabled' };
 }
 
-export default Status; 
+export default Status;

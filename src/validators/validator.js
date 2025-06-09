@@ -26,14 +26,14 @@ import validateUsernameField from './validate-username-field';
 
 /**
  * The validator class providing static validation methods.
- * 
+ *
  * @class
  * @author Haixing Hu
  */
 class Validator {
   /**
    * Validates whether a field value is a string composed of numbers and letters.
-   * 
+   *
    * @static
    * @see {@link validateAlphaNumberField}
    */
@@ -41,7 +41,7 @@ class Validator {
 
   /**
    * Validates whether a field value is a boolean value or string representation of a boolean.
-   * 
+   *
    * @static
    * @see {@link validateBoolField}
    */
@@ -49,7 +49,7 @@ class Validator {
 
   /**
    * Validates whether a field value represents a valid local date.
-   * 
+   *
    * @static
    * @see {@link validateDateField}
    */
@@ -57,7 +57,7 @@ class Validator {
 
   /**
    * Validates whether a field value represents a valid local time.
-   * 
+   *
    * @static
    * @see {@link validateTimeField}
    */
@@ -65,15 +65,15 @@ class Validator {
 
   /**
    * Validates whether a field value represents a valid local date time.
-   * 
+   *
    * @static
    * @see {@link validateDateTimeField}
    */
   static datetime = validateDateTimeField;
-  
+
   /**
    * Validates whether a field value is a valid email address.
-   * 
+   *
    * @static
    * @see {@link validateEmailField}
    */
@@ -81,7 +81,7 @@ class Validator {
 
   /**
    * Validates whether a field value is a valid enumeration type or string representation.
-   * 
+   *
    * @static
    * @see {@link validateEnumField}
    */
@@ -89,7 +89,7 @@ class Validator {
 
   /**
    * Validates whether a field value is a number or string representation of a number.
-   * 
+   *
    * @static
    * @see {@link validateNumberField}
    */
@@ -97,7 +97,7 @@ class Validator {
 
   /**
    * Validates whether a field value is an integer or string representation of an integer.
-   * 
+   *
    * @static
    * @see {@link validateIntegerField}
    */
@@ -105,7 +105,7 @@ class Validator {
 
   /**
    * Validates whether a field value is an integer or string representation of an integer.
-   * 
+   *
    * @static
    * @see {@link validateIntegerField}
    */
@@ -113,7 +113,7 @@ class Validator {
 
   /**
    * Validates whether a field value is a valid mobile phone number.
-   * 
+   *
    * @static
    * @see {@link validateMobileField}
    */
@@ -121,7 +121,7 @@ class Validator {
 
   /**
    * Validates whether a field value is a number or string representation of a number.
-   * 
+   *
    * @static
    * @see {@link validateNumberField}
    */
@@ -129,7 +129,7 @@ class Validator {
 
   /**
    * Validates whether a field value is a valid password.
-   * 
+   *
    * @static
    * @see {@link validatePasswordField}
    */
@@ -137,7 +137,7 @@ class Validator {
 
   /**
    * Validates whether a field value is a valid person name.
-   * 
+   *
    * @static
    * @see {@link validatePersonNameField}
    */
@@ -145,7 +145,7 @@ class Validator {
 
   /**
    * Validates whether a field value is a valid phone number.
-   * 
+   *
    * @static
    * @see {@link validatePhoneField}
    */
@@ -153,7 +153,7 @@ class Validator {
 
   /**
    * Validates whether a field value is a valid timestamp.
-   * 
+   *
    * @static
    * @see {@link validateTimestampField}
    */
@@ -161,7 +161,7 @@ class Validator {
 
   /**
    * Validates whether a field value is a string composed of uppercase letters and numbers.
-   * 
+   *
    * @static
    * @see {@link validateUppercaseAlphaNumberField}
    */
@@ -169,7 +169,7 @@ class Validator {
 
   /**
    * Validates whether a field value is a valid username.
-   * 
+   *
    * @static
    * @see {@link validateUsernameField}
    */
@@ -177,7 +177,7 @@ class Validator {
 
   /**
    * Validates whether a field value is a valid URL.
-   * 
+   *
    * @static
    * @see {@link validateUrlField}
    */

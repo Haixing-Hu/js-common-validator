@@ -231,4 +231,4 @@ class TestUser {
   balance = null;
 }
 
-export default TestUser; 
+export default TestUser;

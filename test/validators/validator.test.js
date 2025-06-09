@@ -28,10 +28,10 @@ describe('Validator', () => {
       const methods = [
         'alphaNum', 'bool', 'date', 'time', 'datetime', 'email', 'enum',
         'number', 'id', 'int', 'mobile', 'money', 'password', 'personName',
-        'phone', 'timestamp', 'upperAlphaNum', 'username', 'url'
+        'phone', 'timestamp', 'upperAlphaNum', 'username', 'url',
       ];
 
-      methods.forEach(method => {
+      methods.forEach((method) => {
         expect(typeof Validator[method]).toBe('function');
         expect(Validator.prototype[method]).toBeUndefined();
       });
@@ -155,28 +155,28 @@ describe('Validator', () => {
 
   describe('enum validation', () => {
     test('Valid enum value by name', () => {
-      const result = Validator.enum('MALE', { 
-        label: '性别', 
-        nullable: false, 
-        type: Gender 
+      const result = Validator.enum('MALE', {
+        label: '性别',
+        nullable: false,
+        type: Gender,
       });
       expect(result).toEqual(new ValidationResult(true));
     });
 
     test('Valid Status enum value', () => {
-      const result = Validator.enum('ACTIVE', { 
-        label: '状态', 
-        nullable: false, 
-        type: Status 
+      const result = Validator.enum('ACTIVE', {
+        label: '状态',
+        nullable: false,
+        type: Status,
       });
       expect(result).toEqual(new ValidationResult(true));
     });
 
     test('Invalid enum value', () => {
-      const result = Validator.enum('invalid', { 
-        label: '性别', 
-        nullable: false, 
-        type: Gender 
+      const result = Validator.enum('invalid', {
+        label: '性别',
+        nullable: false,
+        type: Gender,
       });
       expect(result.success).toBe(false);
     });
@@ -304,12 +304,12 @@ describe('Validator', () => {
       user.age = 25;
       user.height = 1.75;
       user.name = '张三';
-             user.gender = 'MALE';
-       user.status = 'ACTIVE';
+      user.gender = 'MALE';
+      user.status = 'ACTIVE';
       user.active = true;
       user.registerDate = '2023-12-25';
       user.registerTime = '14:30:00';
-             user.registerDateTime = '2023-12-25 14:30:00';
+      user.registerDateTime = '2023-12-25 14:30:00';
       user.lastLoginTimestamp = '2023-12-25T14:30:00Z';
       user.homepage = 'https://example.com';
       user.code = 'ABC123';
@@ -334,9 +334,9 @@ describe('Validator', () => {
       const ageResult = user.validate('age');
       expect(ageResult.success).toBe(true);
 
-             // 验证所有字段
-       const allResult = user.validate();
-       expect(allResult.success).toBe(true);
+      // 验证所有字段
+      const allResult = user.validate();
+      expect(allResult.success).toBe(true);
     });
 
     test('TestUser model with invalid data', () => {
@@ -345,7 +345,7 @@ describe('Validator', () => {
       user.password = '123'; // 密码太简单
       user.email = 'invalid-email'; // 无效邮箱
       user.mobile = '123456'; // 无效手机号
-             user.age = 'invalid'; // 无效年龄
+      user.age = 'invalid'; // 无效年龄
       user.name = ''; // 空姓名
 
       // 验证用户名应该失败
@@ -430,7 +430,7 @@ describe('Validator', () => {
       const result = Validator.email('invalid-email', {
         label: '邮箱',
         owner: '用户',
-        nullable: false
+        nullable: false,
       });
       expect(result.success).toBe(false);
       expect(result.description).toContain('用户');
@@ -453,7 +453,7 @@ describe('Validator', () => {
         label: '年龄',
         nullable: false,
         start: 0,
-        end: 100
+        end: 100,
       });
       expect(result).toEqual(new ValidationResult(true));
     });
@@ -463,7 +463,7 @@ describe('Validator', () => {
         label: '年龄',
         nullable: false,
         start: 0,
-        end: 100
+        end: 100,
       });
       expect(result.success).toBe(false);
     });
@@ -473,9 +473,9 @@ describe('Validator', () => {
         label: '年龄',
         nullable: false,
         start: 0,
-        end: 100
+        end: 100,
       });
       expect(result.success).toBe(false);
     });
   });
-}); 
+});
