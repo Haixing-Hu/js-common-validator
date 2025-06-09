@@ -31,10 +31,19 @@ yarn add @qubit-ltd/common-validator
 
 ## 使用方法
 
+该库提供两种使用验证器的方式：
+
+1. **单独的验证器函数**：导入特定的验证函数
+2. **Validator类**：使用包含所有验证方法的静态 `Validator` 类
+
 ### 基本用法
 
 ```javascript
+// 方法1：导入单独的验证器
 import { validateEmailField, validatePasswordField } from '@qubit-ltd/common-validator';
+
+// 方法2：导入Validator类（推荐）
+import Validator from '@qubit-ltd/common-validator';
 
 // 验证电子邮件地址
 const emailResult = validateEmailField('user@example.com');
@@ -68,28 +77,134 @@ if (!result.success) {
 
 ### 使用Validator类
 
+`Validator` 类提供了所有验证器的静态方法。每个静态属性都引用一个验证函数，可以直接使用：
+
 ```javascript
-import { Validator } from '@qubit-ltd/common-validator';
+import Validator from '@qubit-ltd/common-validator';
 
-// 创建自定义验证器
-const validator = new Validator();
+// 使用静态方法直接验证
+const emailResult = Validator.email('user@example.com');
+const numberResult = Validator.number('123.45');
+const boolResult = Validator.bool(true);
 
-// 验证表单
-const form = {
+// 验证表单数据
+const formData = {
   username: 'zhangsan',
   email: 'zhangsan@example.com',
-  password: 'Password123!'
+  password: 'Password123!',
+  age: '25',
+  gender: 'MALE'
 };
 
-const usernameResult = validator.validateUsername(form.username);
-const emailResult = validator.validateEmail(form.email);
-const passwordResult = validator.validatePassword(form.password);
+const validationResults = {
+  username: Validator.username(formData.username),
+  email: Validator.email(formData.email),
+  password: Validator.password(formData.password),
+  age: Validator.int(formData.age),
+  gender: Validator.enum(formData.gender, { enumClass: ['MALE', 'FEMALE'] })
+};
 
-if (usernameResult.success && emailResult.success && passwordResult.success) {
-  // 表单验证通过
+// 检查所有验证是否通过
+const isFormValid = Object.values(validationResults).every(result => result.success);
+
+if (isFormValid) {
+  console.log('表单验证通过');
 } else {
-  // 表单存在错误
+  // 显示具体的错误信息
+  Object.entries(validationResults).forEach(([field, result]) => {
+    if (!result.success) {
+      console.log(`${field}: ${result.description}`);
+    }
+  });
 }
+```
+
+### Validator字段参考
+
+`Validator` 类提供以下静态验证方法：
+
+| 字段 | 描述 | 示例 |
+|------|------|------|
+| `alphaNum` | 字母数字字符串 | `Validator.alphaNum('abc123')` |
+| `bool` | 布尔值 | `Validator.bool(true)` |
+| `date` | 日期字符串 (YYYY-MM-DD) | `Validator.date('2023-12-25')` |
+| `time` | 时间字符串 (HH:mm:ss) | `Validator.time('14:30:00')` |
+| `datetime` | 日期时间字符串 | `Validator.datetime('2023-12-25 14:30:00')` |
+| `email` | 电子邮件地址 | `Validator.email('user@example.com')` |
+| `enum` | 枚举值 | `Validator.enum('ACTIVE', { enumClass: Status })` |
+| `number` | 数字值 | `Validator.number('123.45')` |
+| `id` | 整数ID (`int`的别名) | `Validator.id('12345')` |
+| `int` | 整数值 | `Validator.int('123')` |
+| `mobile` | 手机号码 | `Validator.mobile('+1234567890')` |
+| `money` | 金额 (`number`的别名) | `Validator.money('99.99')` |
+| `password` | 密码验证 | `Validator.password('SecurePass123!')` |
+| `personName` | 个人姓名 | `Validator.personName('张三')` |
+| `phone` | 电话号码 (`mobile`的别名) | `Validator.phone('+1234567890')` |
+| `timestamp` | Unix时间戳 | `Validator.timestamp('1640419200')` |
+| `upperAlphaNum` | 大写字母数字 | `Validator.upperAlphaNum('ABC123')` |
+| `username` | 用户名 | `Validator.username('zhangsan')` |
+| `url` | URL地址 | `Validator.url('https://example.com')` |
+
+### 高级用法与上下文
+
+所有验证器都接受可选的上下文参数，用于自定义验证行为和错误信息：
+
+```javascript
+// 使用上下文进行字段标记
+const user = { name: '张三', email: '' };
+const emailResult = Validator.email(user.email, {
+  instance: user,
+  owner: user.name
+});
+// 结果描述："请填写张三的电子邮件地址"
+
+// 使用上下文进行范围验证
+const ageResult = Validator.int('150', {
+  min: 0,
+  max: 120
+});
+// 如果年龄超出范围将验证失败
+
+// 使用上下文进行枚举验证
+const statusResult = Validator.enum('ACTIVE', {
+  enumClass: {
+    ACTIVE: { name: '激活', value: 1 },
+    INACTIVE: { name: '未激活', value: 0 }
+  }
+});
+```
+
+### 装饰器验证
+
+该库与 `@Model` 和 `@Validatable` 装饰器集成：
+
+```javascript
+import { Model, Validatable } from '@qubit-ltd/common-decorator';
+
+@Model
+class User {
+  @Validatable(Validator.username)
+  username = '';
+  
+  @Validatable(Validator.email)
+  email = '';
+  
+  @Validatable(Validator.int, { min: 0, max: 120 })
+  age = 0;
+  
+  @Validatable(Validator.enum, { enumClass: Gender })
+  gender = '';
+}
+
+const user = new User();
+user.username = 'zhangsan';
+user.email = 'invalid-email';
+user.age = 25;
+
+// 验证模型
+const result = user.validate();
+console.log(result.success); // false
+console.log(result.description); // 关于邮件验证失败的详细信息
 ```
 
 ## 可用的验证器
