@@ -178,3 +178,5 @@ coverage
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+js-common-decorator
+js-common-model
