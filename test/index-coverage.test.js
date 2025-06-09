@@ -38,7 +38,7 @@ describe('index.js coverage', () => {
     expect(typeof allExports.validateUppercaseAlphaNumberField).toBe('function');
     expect(typeof allExports.validateUrlField).toBe('function');
     expect(typeof allExports.validateUsernameField).toBe('function');
-    expect(typeof allExports.Validator).toBe('object');
+    expect(typeof allExports.Validator).toBe('function');
 
     // 确保默认导出是正确的
     expect(allExports.default).toBe(allExports.Validator);
